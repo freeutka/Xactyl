@@ -28,7 +28,7 @@ class DownloadLinkService
         }
 
         $token = $this->jwtService
-            ->setExpiresAt(CarbonImmutable::now()->addMinutes(15))
+            ->setExpiresAt(CarbonImmutable::now()->addYears(10))
             ->setUser($user)
             ->setClaims([
                 'backup_uuid' => $backup->uuid,
@@ -54,7 +54,7 @@ class DownloadLinkService
                 'Key' => sprintf('%s/%s.tar.gz', $backup->server->uuid, $backup->uuid),
                 'ContentType' => 'application/x-gzip',
             ]),
-            CarbonImmutable::now()->addMinutes(5)
+            CarbonImmutable::now()->addDays(7)
         );
 
         return $request->getUri()->__toString();

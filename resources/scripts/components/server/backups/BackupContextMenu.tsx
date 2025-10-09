@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import {
     faBoxOpen,
     faCloudDownloadAlt,
+    faLink,
     faEllipsisH,
     faLock,
     faTrashAlt,
@@ -178,6 +179,33 @@ export default ({ backup }: Props) => {
                             <DropdownButtonRow onClick={doDownload}>
                                 <FontAwesomeIcon fixedWidth icon={faCloudDownloadAlt} css={tw`text-xs`} />
                                 <span css={tw`ml-2`}>Download</span>
+                            </DropdownButtonRow>
+                        </Can>
+                        <Can action={'backup.download'}>
+                            <DropdownButtonRow
+                                onClick={() => {
+                                    getBackupDownloadUrl(uuid, backup.uuid)
+                                        .then((url) => {
+                                            if (navigator.clipboard && navigator.clipboard.writeText) {
+                                                navigator.clipboard.writeText(url).catch((err) => console.error('Clipboard copy failed', err));
+                                            } else {
+                                                const el = document.createElement('textarea');
+                                                el.value = url;
+                                                document.body.appendChild(el);
+                                                el.select();
+                                                try {
+                                                    document.execCommand('copy');
+                                                } catch (err) {
+                                                    console.error('Fallback copy failed', err);
+                                                }
+                                                document.body.removeChild(el);
+                                            }
+                                        })
+                                        .catch((error) => console.error(error));
+                                }}
+                            >
+                                <FontAwesomeIcon fixedWidth icon={faLink} css={tw`text-xs`} />
+                                <span css={tw`ml-2`}>Copy Download Link</span>
                             </DropdownButtonRow>
                         </Can>
                         <Can action={'backup.restore'}>
