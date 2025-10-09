@@ -108,14 +108,37 @@
                 <h3 class="box-title">Delete User</h3>
             </div>
             <div class="box-body">
-                <p class="no-margin">There must be no servers associated with this account in order for it to be deleted.</p>
+                <p>There must be no servers associated with this account in order for it to be deleted.</p>
             </div>
             <div class="box-footer">
-                <form action="{{ route('admin.users.view', $user->id) }}" method="POST">
+                <form id="deleteUserForm" action="{{ route('admin.users.delete', $user->id) }}" method="POST">
                     {!! csrf_field() !!}
                     {!! method_field('DELETE') !!}
-                    <input id="delete" type="submit" class="btn btn-sm btn-danger pull-right" {{ $user->servers->count() < 1 ?: 'disabled' }} value="Delete User" />
+                    <button type="button" id="deleteUserButton"
+                            class="btn btn-sm btn-danger pull-right"
+                            {{ $user->servers->count() < 1 ? '' : 'disabled' }}
+                            data-toggle="modal" data-target="#confirmDeleteModal">
+                        Delete User
+                    </button>
                 </form>
+            </div>
+        </div>
+    </div>
+    <!-- Confirm Deletion modal -->
+    <div class="modal fade" id="confirmDeleteModal" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-danger">
+                    <h4 class="modal-title" id="confirmDeleteLabel">Confirm Deletion</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to permanently delete the user <code>{{ $user->username }}</code>?</p>
+                    <p>This action cannot be undone.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <button type="submit" form="deleteUserForm" class="btn btn-danger">Delete</button>
+                </div>
             </div>
         </div>
     </div>
