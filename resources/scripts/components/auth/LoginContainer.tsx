@@ -22,6 +22,7 @@ const LoginContainer = ({ history }: RouteComponentProps) => {
 
     const { clearFlashes, clearAndAddHttpError } = useFlash();
     const { enabled: recaptchaEnabled, siteKey } = useStoreState((state) => state.settings.data!.recaptcha);
+    const { enabled: registrationEnabled } = useStoreState((state) => state.settings.data!.registration);
 
     useEffect(() => {
         clearFlashes();
@@ -107,6 +108,16 @@ const LoginContainer = ({ history }: RouteComponentProps) => {
                             Forgot password?
                         </Link>
                     </div>
+                    {registrationEnabled && (
+                        <div css={tw`mt-6 text-center`}>
+                            <Link
+                                to={'/auth/register'}
+                                css={tw`text-xs text-neutral-500 tracking-wide no-underline uppercase`}
+                            >
+                                Don&apos;t have an account?
+                            </Link>
+                        </div>
+                    )}
                 </LoginFormContainer>
             )}
         </Formik>

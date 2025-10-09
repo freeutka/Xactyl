@@ -15,7 +15,7 @@ class UpgradeCommand extends Command
         {--user= : The user that PHP runs under. All files will be owned by this user.}
         {--group= : The group that PHP runs under. All files will be owned by this group.}
         {--url= : The specific archive to download.}
-        {--release= : A specific Xdactyl version to download from GitHub. Leave blank to use latest.}
+        {--release= : A specific Xactyl version to download from GitHub. Leave blank to use latest.}
         {--skip-download : If set no archive will be downloaded.}';
 
     protected $description = 'Downloads a new archive for Xactyl from GitHub and then executes the normal upgrade commands.';

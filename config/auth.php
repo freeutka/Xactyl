@@ -125,4 +125,16 @@ return [
     */
 
     'password_timeout' => 10800,
+
+    /*
+    |--------------------------------------------------------------------------
+    | Registration module
+    |--------------------------------------------------------------------------
+    |
+    | Here you can enable or disable registration button on login page,
+    | By default - registration enabled.
+    |
+    */
+
+    'registration_enabled' => env('REGISTRATION_ENABLED', true),
 ];
