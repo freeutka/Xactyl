@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import { Server } from '@/api/server/getServer';
 import getServers from '@/api/getServers';
 import ServerRow from '@/components/dashboard/ServerRow';
@@ -23,6 +23,8 @@ export default () => {
     const uuid = useStoreState((state) => state.user.data!.uuid);
     const rootAdmin = useStoreState((state) => state.user.data!.rootAdmin);
     const [showOnlyAdmin, setShowOnlyAdmin] = usePersistedState(`${uuid}:show_all_servers`, false);
+    const [sortField, setSortField] = useState<'name' | 'node' | 'cpu'>('name');
+    const [sortDirection, setSortDirection] = useState<'asc' | 'desc'>('asc');
 
     const { data: servers, error } = useSWR<PaginatedResult<Server>>(
         ['/api/client/servers', showOnlyAdmin && rootAdmin, page],
@@ -37,38 +39,83 @@ export default () => {
     }, [servers?.pagination.currentPage]);
 
     useEffect(() => {
-        // Don't use react-router to handle changing this part of the URL, otherwise it
-        // triggers a needless re-render. We just want to track this in the URL incase the
-        // user refreshes the page.
         window.history.replaceState(null, document.title, `/${page <= 1 ? '' : `?page=${page}`}`);
     }, [page]);
 
     useEffect(() => {
         if (error) clearAndAddHttpError({ key: 'dashboard', error });
-        if (!error) clearFlashes('dashboard');
+        else clearFlashes('dashboard');
     }, [error]);
+
+    const sortedServers = useMemo(() => {
+        if (!servers) return [];
+
+        return [...servers.items].sort((a, b) => {
+            let valA: any;
+            let valB: any;
+
+            if (sortField === 'name') {
+                valA = a.name.toLowerCase();
+                valB = b.name.toLowerCase();
+            } else if (sortField === 'node') {
+                valA = a.node.toLowerCase();
+                valB = b.node.toLowerCase();
+            } else if (sortField === 'cpu') {
+                valA = a.limits.cpu;
+                valB = b.limits.cpu;
+            }
+
+            if (valA < valB) return sortDirection === 'asc' ? -1 : 1;
+            if (valA > valB) return sortDirection === 'asc' ? 1 : -1;
+            return 0;
+        });
+    }, [servers, sortField, sortDirection]);
 
     return (
         <PageContentBlock title={'Dashboard'} showFlashKey={'dashboard'}>
             {rootAdmin && (
-                <div css={tw`mb-2 flex justify-end items-center`}>
-                    <p css={tw`uppercase text-xs text-neutral-400 mr-2`}>
-                        {showOnlyAdmin ? "Showing others' servers" : 'Showing your servers'}
-                    </p>
-                    <Switch
-                        name={'show_all_servers'}
-                        defaultChecked={showOnlyAdmin}
-                        onChange={() => setShowOnlyAdmin((s) => !s)}
-                    />
+                <div css={tw`mb-2 flex justify-between items-center`}>
+                    <div css={tw`flex items-center`}>
+                        <p css={tw`uppercase text-xs text-neutral-400 mr-2`}>
+                            {showOnlyAdmin ? "Showing others' servers" : 'Showing your servers'}
+                        </p>
+                        <Switch
+                            name={'show_all_servers'}
+                            defaultChecked={showOnlyAdmin}
+                            onChange={() => setShowOnlyAdmin((s) => !s)}
+                        />
+                    </div>
+
+                    {/* Sorting panel */}
+                    <div css={tw`flex items-center text-sm`}>
+                        <label css={tw`mr-2 text-neutral-400`}>Sort by:</label>
+                        <select
+                            value={sortField}
+                            onChange={(e) => setSortField(e.target.value as any)}
+                            css={tw`bg-neutral-700 text-white px-2 py-1 rounded mr-2`}
+                        >
+                            <option value="name">Name</option>
+                            <option value="node">Node</option>
+                            <option value="cpu">CPU</option>
+                        </select>
+
+                        <button
+                            onClick={() => setSortDirection((d) => (d === 'asc' ? 'desc' : 'asc'))}
+                            css={tw`bg-neutral-700 px-2 py-1 rounded`}
+                        >
+                            {sortDirection === 'asc' ? '↑' : '↓'}
+                        </button>
+                    </div>
                 </div>
             )}
+
             {!servers ? (
                 <Spinner centered size={'large'} />
             ) : (
                 <Pagination data={servers} onPageSelect={setPage}>
-                    {({ items }) =>
-                        items.length > 0 ? (
-                            items.map((server, index) => (
+                    {() =>
+                        sortedServers.length > 0 ? (
+                            sortedServers.map((server, index) => (
                                 <ServerRow key={server.uuid} server={server} css={index > 0 ? tw`mt-2` : undefined} />
                             ))
                         ) : (
