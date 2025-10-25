@@ -1,16 +1,16 @@
 const colors = require('tailwindcss/colors');
 
 const gray = {
-    50: '#e0e0e0', 
-    100: '#cfcfcf',
-    200: '#bdbdbd',
-    300: '#9e9e9e',
-    400: '#7a7a7a',
-    500: '#5c5c5c',
-    600: '#3f3f3f',
-    700: '#2b2b2b',
-    800: '#1e1e1e', 
-    900: '#121212', 
+    50: 'hsl(216, 33%, 97%)',
+    100: 'hsl(214, 15%, 91%)',
+    200: 'hsl(210, 16%, 82%)',
+    300: 'hsl(211, 13%, 65%)',
+    400: 'hsl(211, 10%, 53%)',
+    500: 'hsl(211, 12%, 43%)',
+    600: 'hsl(209, 14%, 37%)',
+    700: 'hsl(209, 18%, 30%)',
+    800: 'hsl(209, 20%, 25%)',
+    900: 'hsl(210, 24%, 16%)',
 };
 
 module.exports = {
@@ -23,36 +23,13 @@ module.exports = {
                 header: ['"IBM Plex Sans"', '"Roboto"', 'system-ui', 'sans-serif'],
             },
             colors: {
-                black: '#121212', 
-                primary: {
-                    DEFAULT: '#d32f2f', 
-                    50: '#fdecea',
-                    100: '#f9d3d0',
-                    200: '#f3a8a4',
-                    300: '#ed7c78',
-                    400: '#e65550',
-                    500: '#d32f2f',
-                    600: '#b71c1c',
-                    700: '#9a1313',
-                    800: '#7f0f0f',
-                    900: '#5a0a0a',
-                },
-                orange: colors.orange, 
+                black: '#131a20',
+                // "primary" and "neutral" are deprecated, prefer the use of "blue" and "gray"
+                // in new code.
+                primary: colors.blue,
                 gray: gray,
                 neutral: gray,
                 cyan: colors.cyan,
-                neutral: {
-                    50: gray[50],
-                    100: gray[100],
-                    200: gray[200],
-                    300: gray[300],
-                    400: gray[400],
-                    500: gray[500],
-                    600: gray[600],
-                    700: gray[700],
-                    800: gray[800],
-                    900: gray[900],
-                }
             },
             fontSize: {
                 '2xs': '0.625rem',
@@ -61,7 +38,7 @@ module.exports = {
                 250: '250ms',
             },
             borderColor: theme => ({
-                default: theme('colors.gray.400', 'currentColor'),
+                default: theme('colors.neutral.400', 'currentColor'),
             }),
         },
     },

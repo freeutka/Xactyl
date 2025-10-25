@@ -18,10 +18,10 @@ const BottomNav = styled.div`
     left: 50%;
     transform: translateX(-50%);
     display: flex;
-    background: #1f1f1f;
+    background: #1f2933;
     padding: 8px 16px;
     border-radius: 9999px;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
     z-index: 50;
 `;
 
@@ -32,17 +32,17 @@ const NavItem = styled(NavLink)`
     width: 48px;
     height: 48px;
     margin: 0 4px;
-    color: #ccc;
+    color: #9aa5b1;
     border-radius: 50%;
     transition: all 0.2s ease;
 
     &:hover {
-        background: #333;
-        color: #fff;
+        background: #33404d;
+        color: #cad1d8);
     }
 
     &.active {
-        background: #0ea5e9;
+        background: #099aa5;
         color: #fff;
     }
 `;
@@ -54,7 +54,7 @@ const ButtonItem = styled.button`
     width: 48px;
     height: 48px;
     margin: 0 4px;
-    color: #ccc;
+    color: #9aa5b1;
     border: none;
     background: transparent;
     border-radius: 50%;
@@ -62,8 +62,8 @@ const ButtonItem = styled.button`
     transition: all 0.2s ease;
 
     &:hover {
-        background: #333;
-        color: #fff;
+        background: #33404d;
+        color: #cad1d8;
     }
 `;
 
