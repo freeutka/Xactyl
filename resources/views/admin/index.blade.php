@@ -35,54 +35,59 @@
         </div>
     </div>
 </div>
-<div class="row" style="margin-bottom:15px;">
-    <div class="col-md-2 col-sm-4 col-xs-6">
-        <div class="small-box" style="background-color:#444444; color:#ff4d4d;">
-            <div class="inner">
-                <h3>{{ $totalUsers }}</h3>
-                <p>Total Users</p>
+<div class="row">
+    <div class="col-md-2">
+        <div class="box box-info text-center">
+            <div class="box-header with-border">
+                <h3 class="box-title"><i class="fa fa-users"></i> Total Users</h3>
             </div>
-            <div class="icon"><i class="fa fa-users"></i></div>
+            <div class="box-body">
+                <h2 class="no-margin">{{ $totalUsers }}</h2>
+            </div>
         </div>
     </div>
 
-    <div class="col-md-2 col-sm-4 col-xs-6">
-        <div class="small-box" style="background-color:#444444; color:#ff4d4d;">
-            <div class="inner">
-                <h3>{{ $totalServers }}</h3>
-                <p>Total Servers</p>
+    <div class="col-md-2">
+        <div class="box box-info text-center">
+            <div class="box-header with-border">
+                <h3 class="box-title"><i class="fa fa-server"></i> Total Servers</h3>
             </div>
-            <div class="icon"><i class="fa fa-server"></i></div>
+            <div class="box-body">
+                <h2 class="no-margin">{{ $totalServers }}</h2>
+            </div>
         </div>
     </div>
 
-    <div class="col-md-2 col-sm-4 col-xs-6">
-        <div class="small-box" style="background-color:#444444; color:#ff4d4d;">
-            <div class="inner">
-                <h3>{{ $totalAllocations }}</h3>
-                <p>Total Allocations</p>
+    <div class="col-md-2">
+        <div class="box box-info text-center">
+            <div class="box-header with-border">
+                <h3 class="box-title"><i class="fa fa-plug"></i> Total Allocations</h3>
             </div>
-            <div class="icon"><i class="fa fa-plug"></i></div>
+            <div class="box-body">
+                <h2 class="no-margin">{{ $totalAllocations }}</h2>
+            </div>
         </div>
     </div>
 
-    <div class="col-md-3 col-sm-6 col-xs-12">
-        <div class="small-box" style="background-color:#444444; color:#ff4d4d;">
-            <div class="inner">
-                <h3>{{ $totalRamDisplay }}</h3>
-                <p>Total RAM use</p>
+    <div class="col-md-3">
+        <div class="box box-info text-center">
+            <div class="box-header with-border">
+                <h3 class="box-title"><i class="fa fa-microchip"></i> Total RAM Use</h3>
             </div>
-            <div class="icon"><i class="fa fa-microchip"></i></div> 
+            <div class="box-body">
+                <h2 class="no-margin">{{ $totalRamDisplay }}</h2>
+            </div>
         </div>
     </div>
 
-    <div class="col-md-3 col-sm-6 col-xs-12">
-        <div class="small-box" style="background-color:#444444; color:#ff4d4d;">
-            <div class="inner">
-                <h3>{{ $totalDiskDisplay }}</h3>
-                <p>Total Disk use</p>
+    <div class="col-md-3">
+        <div class="box box-info text-center">
+            <div class="box-header with-border">
+                <h3 class="box-title"><i class="fa fa-hdd-o"></i> Total Disk Use</h3>
             </div>
-            <div class="icon"><i class="fa fa-hdd-o"></i></div>
+            <div class="box-body">
+                <h2 class="no-margin">{{ $totalDiskDisplay }}</h2>
+            </div>
         </div>
     </div>
 </div>
