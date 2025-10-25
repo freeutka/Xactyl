@@ -42,7 +42,7 @@ const NavItem = styled(NavLink)`
     }
 
     &.active {
-        background: #099aa5;
+        background: #0087F7;
         color: #fff;
     }
 `;
