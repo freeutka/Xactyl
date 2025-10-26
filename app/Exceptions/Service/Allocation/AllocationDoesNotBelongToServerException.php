@@ -2,8 +2,8 @@
 
 namespace Xactyl\Exceptions\Service\Allocation;
 
-use Xactyl\Exceptions\PterodactylException;
+use Xactyl\Exceptions\XactylException;
 
-class AllocationDoesNotBelongToServerException extends PterodactylException
+class AllocationDoesNotBelongToServerException extends XactylException
 {
 }

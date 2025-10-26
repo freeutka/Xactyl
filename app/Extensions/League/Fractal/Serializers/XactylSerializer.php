@@ -4,7 +4,7 @@ namespace Xactyl\Extensions\League\Fractal\Serializers;
 
 use League\Fractal\Serializer\ArraySerializer;
 
-class PterodactylSerializer extends ArraySerializer
+class XactylSerializer extends ArraySerializer
 {
     /**
      * Serialize an item.

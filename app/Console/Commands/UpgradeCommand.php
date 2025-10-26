@@ -22,7 +22,7 @@ class UpgradeCommand extends Command
 
     /**
      * Executes an upgrade command which will run through all of our standard
-     * commands for Pterodactyl and enable users to basically just download
+     * commands for Xactyl and enable users to basically just download
      * the archive and execute this and be done.
      *
      * This places the application in maintenance mode as well while the commands

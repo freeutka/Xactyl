@@ -22,14 +22,14 @@ class SettingsServiceProvider extends ServiceProvider
         'recaptcha:enabled',
         'recaptcha:secret_key',
         'recaptcha:website_key',
-        'pterodactyl:guzzle:timeout',
-        'pterodactyl:guzzle:connect_timeout',
-        'pterodactyl:console:count',
-        'pterodactyl:console:frequency',
-        'pterodactyl:auth:2fa_required',
-        'pterodactyl:client_features:allocations:enabled',
-        'pterodactyl:client_features:allocations:range_start',
-        'pterodactyl:client_features:allocations:range_end',
+        'xactyl:guzzle:timeout',
+        'xactyl:guzzle:connect_timeout',
+        'xactyl:console:count',
+        'xactyl:console:frequency',
+        'xactyl:auth:2fa_required',
+        'xactyl:client_features:allocations:enabled',
+        'xactyl:client_features:allocations:range_start',
+        'xactyl:client_features:allocations:range_end',
     ];
 
     /**

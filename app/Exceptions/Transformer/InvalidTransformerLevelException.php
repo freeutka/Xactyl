@@ -2,8 +2,8 @@
 
 namespace Xactyl\Exceptions\Transformer;
 
-use Xactyl\Exceptions\PterodactylException;
+use Xactyl\Exceptions\XactylException;
 
-class InvalidTransformerLevelException extends PterodactylException
+class InvalidTransformerLevelException extends XactylException
 {
 }

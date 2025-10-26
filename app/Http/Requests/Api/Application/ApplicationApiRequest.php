@@ -9,7 +9,7 @@ use Illuminate\Validation\Validator;
 use Illuminate\Database\Eloquent\Model;
 use Xactyl\Services\Acl\Api\AdminAcl;
 use Illuminate\Foundation\Http\FormRequest;
-use Xactyl\Exceptions\PterodactylException;
+use Xactyl\Exceptions\XactylException;
 
 abstract class ApplicationApiRequest extends FormRequest
 {
@@ -29,12 +29,12 @@ abstract class ApplicationApiRequest extends FormRequest
      * Determine if the current user is authorized to perform
      * the requested action against the API.
      *
-     * @throws \Xactyl\Exceptions\PterodactylException
+     * @throws \Xactyl\Exceptions\XactylException
      */
     public function authorize(): bool
     {
         if (is_null($this->resource)) {
-            throw new PterodactylException('An ACL resource must be defined on API requests.');
+            throw new XactylException('An ACL resource must be defined on API requests.');
         }
 
         $token = $this->user()->currentAccessToken();

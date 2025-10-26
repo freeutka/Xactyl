@@ -8,7 +8,7 @@ use Xactyl\Contracts\Repository\EggRepositoryInterface;
 use Illuminate\Contracts\Config\Repository as ConfigRepository;
 use Xactyl\Exceptions\Service\Egg\NoParentConfigurationFoundException;
 
-// When a mommy and a daddy pterodactyl really like each other...
+// When a mommy and a daddy pterodactyl (NO, XACTYL) really like each other...
 class EggCreationService
 {
     /**
@@ -40,7 +40,7 @@ class EggCreationService
 
         return $this->repository->create(array_merge($data, [
             'uuid' => Uuid::uuid4()->toString(),
-            'author' => $this->config->get('pterodactyl.service.author'),
+            'author' => $this->config->get('xactyl.service.author'),
         ]), true, true);
     }
 }

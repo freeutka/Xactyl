@@ -36,7 +36,7 @@ class EmailSettingsCommand extends Command
     /**
      * Handle command execution.
      *
-     * @throws \Xactyl\Exceptions\PterodactylException
+     * @throws \Xactyl\Exceptions\XactylException
      */
     public function handle()
     {

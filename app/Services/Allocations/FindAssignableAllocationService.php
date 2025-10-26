@@ -30,7 +30,7 @@ class FindAssignableAllocationService
      */
     public function handle(Server $server): Allocation
     {
-        if (!config('pterodactyl.client_features.allocations.enabled')) {
+        if (!config('xactyl.client_features.allocations.enabled')) {
             throw new AutoAllocationNotEnabledException();
         }
 
@@ -64,8 +64,8 @@ class FindAssignableAllocationService
      */
     protected function createNewAllocation(Server $server): Allocation
     {
-        $start = config('pterodactyl.client_features.allocations.range_start', null);
-        $end = config('pterodactyl.client_features.allocations.range_end', null);
+        $start = config('xactyl.client_features.allocations.range_start', null);
+        $end = config('xactyl.client_features.allocations.range_end', null);
 
         if (!$start || !$end) {
             throw new NoAutoAllocationSpaceAvailableException();

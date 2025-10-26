@@ -2,9 +2,9 @@
 
 namespace Xactyl\Exceptions\Service\Database;
 
-use Xactyl\Exceptions\PterodactylException;
+use Xactyl\Exceptions\XactylException;
 
-class DatabaseClientFeatureNotEnabledException extends PterodactylException
+class DatabaseClientFeatureNotEnabledException extends XactylException
 {
     public function __construct()
     {

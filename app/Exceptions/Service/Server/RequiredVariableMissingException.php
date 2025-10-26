@@ -2,8 +2,8 @@
 
 namespace Xactyl\Exceptions\Service\Server;
 
-use Xactyl\Exceptions\PterodactylException;
+use Xactyl\Exceptions\XactylException;
 
-class RequiredVariableMissingException extends PterodactylException
+class RequiredVariableMissingException extends XactylException
 {
 }
