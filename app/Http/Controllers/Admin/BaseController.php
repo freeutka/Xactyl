@@ -1,12 +1,12 @@
 <?php
 
-namespace Pterodactyl\Http\Controllers\Admin;
+namespace Xactyl\Http\Controllers\Admin;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 use Illuminate\View\Factory as ViewFactory;
-use Pterodactyl\Http\Controllers\Controller;
-use Pterodactyl\Services\Helpers\SoftwareVersionService;
+use Xactyl\Http\Controllers\Controller;
+use Xactyl\Services\Helpers\SoftwareVersionService;
 
 class BaseController extends Controller
 {

@@ -1,17 +1,17 @@
 <?php
 
-namespace Pterodactyl\Console;
+namespace Xactyl\Console;
 
 use Ramsey\Uuid\Uuid;
-use Pterodactyl\Models\ActivityLog;
+use Xactyl\Models\ActivityLog;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Database\Console\PruneCommand;
-use Pterodactyl\Repositories\Eloquent\SettingsRepository;
+use Xactyl\Repositories\Eloquent\SettingsRepository;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
-//use Pterodactyl\Services\Telemetry\TelemetryCollectionService;
-use Pterodactyl\Console\Commands\Schedule\ProcessRunnableCommand;
-use Pterodactyl\Console\Commands\Maintenance\PruneOrphanedBackupsCommand;
-use Pterodactyl\Console\Commands\Maintenance\CleanServiceBackupFilesCommand;
+//use Xactyl\Services\Telemetry\TelemetryCollectionService;
+use Xactyl\Console\Commands\Schedule\ProcessRunnableCommand;
+use Xactyl\Console\Commands\Maintenance\PruneOrphanedBackupsCommand;
+use Xactyl\Console\Commands\Maintenance\CleanServiceBackupFilesCommand;
 
 class Kernel extends ConsoleKernel
 {
@@ -52,7 +52,7 @@ class Kernel extends ConsoleKernel
     /**
      * I wonder what this does.
      *
-     * @throws \Pterodactyl\Exceptions\Model\DataValidationException
+     * @throws \Xactyl\Exceptions\Model\DataValidationException
      * @throws \Illuminate\Contracts\Container\BindingResolutionException
      */
     //private function registerTelemetry(Schedule $schedule): void

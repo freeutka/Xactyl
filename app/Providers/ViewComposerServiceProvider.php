@@ -1,9 +1,9 @@
 <?php
 
-namespace Pterodactyl\Providers;
+namespace Xactyl\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Pterodactyl\Http\ViewComposers\AssetComposer;
+use Xactyl\Http\ViewComposers\AssetComposer;
 
 class ViewComposerServiceProvider extends ServiceProvider
 {

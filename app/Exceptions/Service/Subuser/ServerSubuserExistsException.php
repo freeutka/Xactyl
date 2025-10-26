@@ -1,8 +1,8 @@
 <?php
 
-namespace Pterodactyl\Exceptions\Service\Subuser;
+namespace Xactyl\Exceptions\Service\Subuser;
 
-use Pterodactyl\Exceptions\DisplayException;
+use Xactyl\Exceptions\DisplayException;
 
 class ServerSubuserExistsException extends DisplayException
 {

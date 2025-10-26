@@ -1,23 +1,23 @@
 <?php
 //
-//namespace Pterodactyl\Services\Telemetry;
+//namespace Xactyl\Services\Telemetry;
 //
 //use Exception;
 //use Ramsey\Uuid\Uuid;
 //use Illuminate\Support\Arr;
-//use Pterodactyl\Models\Egg;
-//use Pterodactyl\Models\Nest;
-//use Pterodactyl\Models\Node;
-//use Pterodactyl\Models\User;
-//use Pterodactyl\Models\Mount;
-//use Pterodactyl\Models\Backup;
-//use Pterodactyl\Models\Server;
-//use Pterodactyl\Models\Location;
+//use Xactyl\Models\Egg;
+//use Xactyl\Models\Nest;
+//use Xactyl\Models\Node;
+//use Xactyl\Models\User;
+//use Xactyl\Models\Mount;
+//use Xactyl\Models\Backup;
+//use Xactyl\Models\Server;
+//use Xactyl\Models\Location;
 //use Illuminate\Support\Facades\DB;
-//use Pterodactyl\Models\Allocation;
+//use Xactyl\Models\Allocation;
 //use Illuminate\Support\Facades\Http;
-//use Pterodactyl\Repositories\Eloquent\SettingsRepository;
-//use Pterodactyl\Repositories\Wings\DaemonConfigurationRepository;
+//use Xactyl\Repositories\Eloquent\SettingsRepository;
+//use Xactyl\Repositories\Wings\DaemonConfigurationRepository;
 //
 //class TelemetryCollectionService
 //{
@@ -47,7 +47,7 @@
 //    /**
 //     * Collects telemetry data and returns it as an array.
 //     *
-//     * @throws \Pterodactyl\Exceptions\Model\DataValidationException
+//     * @throws \Xactyl\Exceptions\Model\DataValidationException
 //     */
 //    public function collect(): array
 //    {

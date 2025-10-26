@@ -1,26 +1,26 @@
 <?php
 
-namespace Pterodactyl\Http\Controllers\Admin;
+namespace Xactyl\Http\Controllers\Admin;
 
 use Illuminate\View\View;
 use Illuminate\Http\Request;
-use Pterodactyl\Models\User;
-use Pterodactyl\Models\Model;
+use Xactyl\Models\User;
+use Xactyl\Models\Model;
 use Illuminate\Support\Collection;
 use Illuminate\Http\RedirectResponse;
 use Prologue\Alerts\AlertsMessageBag;
 use Spatie\QueryBuilder\QueryBuilder;
 use Illuminate\View\Factory as ViewFactory;
-use Pterodactyl\Exceptions\DisplayException;
-use Pterodactyl\Http\Controllers\Controller;
+use Xactyl\Exceptions\DisplayException;
+use Xactyl\Http\Controllers\Controller;
 use Illuminate\Contracts\Translation\Translator;
-use Pterodactyl\Services\Users\UserUpdateService;
-use Pterodactyl\Traits\Helpers\AvailableLanguages;
-use Pterodactyl\Services\Users\UserCreationService;
-use Pterodactyl\Services\Users\UserDeletionService;
-use Pterodactyl\Http\Requests\Admin\UserFormRequest;
-use Pterodactyl\Http\Requests\Admin\NewUserFormRequest;
-use Pterodactyl\Contracts\Repository\UserRepositoryInterface;
+use Xactyl\Services\Users\UserUpdateService;
+use Xactyl\Traits\Helpers\AvailableLanguages;
+use Xactyl\Services\Users\UserCreationService;
+use Xactyl\Services\Users\UserDeletionService;
+use Xactyl\Http\Requests\Admin\UserFormRequest;
+use Xactyl\Http\Requests\Admin\NewUserFormRequest;
+use Xactyl\Contracts\Repository\UserRepositoryInterface;
 
 class UserController extends Controller
 {
@@ -85,7 +85,7 @@ class UserController extends Controller
      * Delete a user from the system.
      *
      * @throws \Exception
-     * @throws \Pterodactyl\Exceptions\DisplayException
+     * @throws \Xactyl\Exceptions\DisplayException
      */
     public function delete(Request $request, User $user): RedirectResponse
     {
@@ -115,8 +115,8 @@ class UserController extends Controller
     /**
      * Update a user on the system.
      *
-     * @throws \Pterodactyl\Exceptions\Model\DataValidationException
-     * @throws \Pterodactyl\Exceptions\Repository\RecordNotFoundException
+     * @throws \Xactyl\Exceptions\Model\DataValidationException
+     * @throws \Xactyl\Exceptions\Repository\RecordNotFoundException
      */
     public function update(UserFormRequest $request, User $user): RedirectResponse
     {

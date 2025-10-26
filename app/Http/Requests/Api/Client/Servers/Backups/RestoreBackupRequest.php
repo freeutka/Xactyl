@@ -1,9 +1,9 @@
 <?php
 
-namespace Pterodactyl\Http\Requests\Api\Client\Servers\Backups;
+namespace Xactyl\Http\Requests\Api\Client\Servers\Backups;
 
-use Pterodactyl\Models\Permission;
-use Pterodactyl\Http\Requests\Api\Client\ClientApiRequest;
+use Xactyl\Models\Permission;
+use Xactyl\Http\Requests\Api\Client\ClientApiRequest;
 
 class RestoreBackupRequest extends ClientApiRequest
 {

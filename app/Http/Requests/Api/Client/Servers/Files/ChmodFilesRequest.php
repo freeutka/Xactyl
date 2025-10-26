@@ -1,10 +1,10 @@
 <?php
 
-namespace Pterodactyl\Http\Requests\Api\Client\Servers\Files;
+namespace Xactyl\Http\Requests\Api\Client\Servers\Files;
 
-use Pterodactyl\Models\Permission;
-use Pterodactyl\Contracts\Http\ClientPermissionsRequest;
-use Pterodactyl\Http\Requests\Api\Client\ClientApiRequest;
+use Xactyl\Models\Permission;
+use Xactyl\Contracts\Http\ClientPermissionsRequest;
+use Xactyl\Http\Requests\Api\Client\ClientApiRequest;
 
 class ChmodFilesRequest extends ClientApiRequest implements ClientPermissionsRequest
 {

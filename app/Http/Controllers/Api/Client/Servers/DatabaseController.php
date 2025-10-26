@@ -1,20 +1,20 @@
 <?php
 
-namespace Pterodactyl\Http\Controllers\Api\Client\Servers;
+namespace Xactyl\Http\Controllers\Api\Client\Servers;
 
 use Illuminate\Http\Response;
-use Pterodactyl\Models\Server;
-use Pterodactyl\Models\Database;
-use Pterodactyl\Facades\Activity;
-use Pterodactyl\Services\Databases\DatabasePasswordService;
-use Pterodactyl\Transformers\Api\Client\DatabaseTransformer;
-use Pterodactyl\Services\Databases\DatabaseManagementService;
-use Pterodactyl\Services\Databases\DeployServerDatabaseService;
-use Pterodactyl\Http\Controllers\Api\Client\ClientApiController;
-use Pterodactyl\Http\Requests\Api\Client\Servers\Databases\GetDatabasesRequest;
-use Pterodactyl\Http\Requests\Api\Client\Servers\Databases\StoreDatabaseRequest;
-use Pterodactyl\Http\Requests\Api\Client\Servers\Databases\DeleteDatabaseRequest;
-use Pterodactyl\Http\Requests\Api\Client\Servers\Databases\RotatePasswordRequest;
+use Xactyl\Models\Server;
+use Xactyl\Models\Database;
+use Xactyl\Facades\Activity;
+use Xactyl\Services\Databases\DatabasePasswordService;
+use Xactyl\Transformers\Api\Client\DatabaseTransformer;
+use Xactyl\Services\Databases\DatabaseManagementService;
+use Xactyl\Services\Databases\DeployServerDatabaseService;
+use Xactyl\Http\Controllers\Api\Client\ClientApiController;
+use Xactyl\Http\Requests\Api\Client\Servers\Databases\GetDatabasesRequest;
+use Xactyl\Http\Requests\Api\Client\Servers\Databases\StoreDatabaseRequest;
+use Xactyl\Http\Requests\Api\Client\Servers\Databases\DeleteDatabaseRequest;
+use Xactyl\Http\Requests\Api\Client\Servers\Databases\RotatePasswordRequest;
 
 class DatabaseController extends ClientApiController
 {
@@ -43,8 +43,8 @@ class DatabaseController extends ClientApiController
      * Create a new database for the given server and return it.
      *
      * @throws \Throwable
-     * @throws \Pterodactyl\Exceptions\Service\Database\TooManyDatabasesException
-     * @throws \Pterodactyl\Exceptions\Service\Database\DatabaseClientFeatureNotEnabledException
+     * @throws \Xactyl\Exceptions\Service\Database\TooManyDatabasesException
+     * @throws \Xactyl\Exceptions\Service\Database\DatabaseClientFeatureNotEnabledException
      */
     public function store(StoreDatabaseRequest $request, Server $server): array
     {
@@ -86,7 +86,7 @@ class DatabaseController extends ClientApiController
     /**
      * Removes a database from the server.
      *
-     * @throws \Pterodactyl\Exceptions\Repository\RecordNotFoundException
+     * @throws \Xactyl\Exceptions\Repository\RecordNotFoundException
      */
     public function delete(DeleteDatabaseRequest $request, Server $server, Database $database): Response
     {

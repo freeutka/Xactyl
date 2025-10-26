@@ -1,10 +1,10 @@
 <?php
 
-namespace Pterodactyl\Services\Eggs;
+namespace Xactyl\Services\Eggs;
 
-use Pterodactyl\Models\Egg;
-use Pterodactyl\Contracts\Repository\EggRepositoryInterface;
-use Pterodactyl\Exceptions\Service\Egg\NoParentConfigurationFoundException;
+use Xactyl\Models\Egg;
+use Xactyl\Contracts\Repository\EggRepositoryInterface;
+use Xactyl\Exceptions\Service\Egg\NoParentConfigurationFoundException;
 
 class EggUpdateService
 {
@@ -18,9 +18,9 @@ class EggUpdateService
     /**
      * Update a service option.
      *
-     * @throws \Pterodactyl\Exceptions\Model\DataValidationException
-     * @throws \Pterodactyl\Exceptions\Repository\RecordNotFoundException
-     * @throws \Pterodactyl\Exceptions\Service\Egg\NoParentConfigurationFoundException
+     * @throws \Xactyl\Exceptions\Model\DataValidationException
+     * @throws \Xactyl\Exceptions\Repository\RecordNotFoundException
+     * @throws \Xactyl\Exceptions\Service\Egg\NoParentConfigurationFoundException
      */
     public function handle(Egg $egg, array $data): void
     {

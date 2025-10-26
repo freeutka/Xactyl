@@ -1,11 +1,11 @@
 <?php
 
-namespace Pterodactyl\Http\Requests\Api\Client\Servers\Settings;
+namespace Xactyl\Http\Requests\Api\Client\Servers\Settings;
 
-use Pterodactyl\Models\Server;
-use Pterodactyl\Models\Permission;
-use Pterodactyl\Contracts\Http\ClientPermissionsRequest;
-use Pterodactyl\Http\Requests\Api\Client\ClientApiRequest;
+use Xactyl\Models\Server;
+use Xactyl\Models\Permission;
+use Xactyl\Contracts\Http\ClientPermissionsRequest;
+use Xactyl\Http\Requests\Api\Client\ClientApiRequest;
 
 class RenameServerRequest extends ClientApiRequest implements ClientPermissionsRequest
 {

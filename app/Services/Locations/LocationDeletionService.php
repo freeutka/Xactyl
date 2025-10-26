@@ -1,12 +1,12 @@
 <?php
 
-namespace Pterodactyl\Services\Locations;
+namespace Xactyl\Services\Locations;
 
 use Webmozart\Assert\Assert;
-use Pterodactyl\Models\Location;
-use Pterodactyl\Contracts\Repository\NodeRepositoryInterface;
-use Pterodactyl\Contracts\Repository\LocationRepositoryInterface;
-use Pterodactyl\Exceptions\Service\Location\HasActiveNodesException;
+use Xactyl\Models\Location;
+use Xactyl\Contracts\Repository\NodeRepositoryInterface;
+use Xactyl\Contracts\Repository\LocationRepositoryInterface;
+use Xactyl\Exceptions\Service\Location\HasActiveNodesException;
 
 class LocationDeletionService
 {
@@ -22,7 +22,7 @@ class LocationDeletionService
     /**
      * Delete an existing location.
      *
-     * @throws \Pterodactyl\Exceptions\Service\Location\HasActiveNodesException
+     * @throws \Xactyl\Exceptions\Service\Location\HasActiveNodesException
      */
     public function handle(Location|int $location): ?int
     {

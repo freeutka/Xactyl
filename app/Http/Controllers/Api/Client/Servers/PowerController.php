@@ -1,13 +1,13 @@
 <?php
 
-namespace Pterodactyl\Http\Controllers\Api\Client\Servers;
+namespace Xactyl\Http\Controllers\Api\Client\Servers;
 
 use Illuminate\Http\Response;
-use Pterodactyl\Models\Server;
-use Pterodactyl\Facades\Activity;
-use Pterodactyl\Repositories\Wings\DaemonPowerRepository;
-use Pterodactyl\Http\Controllers\Api\Client\ClientApiController;
-use Pterodactyl\Http\Requests\Api\Client\Servers\SendPowerRequest;
+use Xactyl\Models\Server;
+use Xactyl\Facades\Activity;
+use Xactyl\Repositories\Wings\DaemonPowerRepository;
+use Xactyl\Http\Controllers\Api\Client\ClientApiController;
+use Xactyl\Http\Requests\Api\Client\Servers\SendPowerRequest;
 
 class PowerController extends ClientApiController
 {

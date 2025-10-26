@@ -1,12 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Pterodactyl\Http\Controllers\Api\Client;
-use Pterodactyl\Http\Middleware\Activity\ServerSubject;
-use Pterodactyl\Http\Middleware\Activity\AccountSubject;
-use Pterodactyl\Http\Middleware\RequireTwoFactorAuthentication;
-use Pterodactyl\Http\Middleware\Api\Client\Server\ResourceBelongsToServer;
-use Pterodactyl\Http\Middleware\Api\Client\Server\AuthenticateServerAccess;
+use Xactyl\Http\Controllers\Api\Client;
+use Xactyl\Http\Middleware\Activity\ServerSubject;
+use Xactyl\Http\Middleware\Activity\AccountSubject;
+use Xactyl\Http\Middleware\RequireTwoFactorAuthentication;
+use Xactyl\Http\Middleware\Api\Client\Server\ResourceBelongsToServer;
+use Xactyl\Http\Middleware\Api\Client\Server\AuthenticateServerAccess;
 
 /*
 |--------------------------------------------------------------------------

@@ -1,8 +1,8 @@
 <?php
 
-namespace Pterodactyl\Notifications;
+namespace Xactyl\Notifications;
 
-use Pterodactyl\Models\User;
+use Xactyl\Models\User;
 use Illuminate\Notifications\Notification;
 use Illuminate\Notifications\Messages\MailMessage;
 

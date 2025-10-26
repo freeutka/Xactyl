@@ -1,6 +1,6 @@
 <?php
 
-namespace Pterodactyl\Exceptions;
+namespace Xactyl\Exceptions;
 
 class AutoDeploymentException extends \Exception
 {

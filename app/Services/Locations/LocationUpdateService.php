@@ -1,9 +1,9 @@
 <?php
 
-namespace Pterodactyl\Services\Locations;
+namespace Xactyl\Services\Locations;
 
-use Pterodactyl\Models\Location;
-use Pterodactyl\Contracts\Repository\LocationRepositoryInterface;
+use Xactyl\Models\Location;
+use Xactyl\Contracts\Repository\LocationRepositoryInterface;
 
 class LocationUpdateService
 {
@@ -17,8 +17,8 @@ class LocationUpdateService
     /**
      * Update an existing location.
      *
-     * @throws \Pterodactyl\Exceptions\Model\DataValidationException
-     * @throws \Pterodactyl\Exceptions\Repository\RecordNotFoundException
+     * @throws \Xactyl\Exceptions\Model\DataValidationException
+     * @throws \Xactyl\Exceptions\Repository\RecordNotFoundException
      */
     public function handle(Location|int $location, array $data): Location
     {

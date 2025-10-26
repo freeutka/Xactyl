@@ -1,23 +1,23 @@
 <?php
 
-namespace Pterodactyl\Http\Controllers\Api\Client\Servers;
+namespace Xactyl\Http\Controllers\Api\Client\Servers;
 
 use Illuminate\Http\Request;
-use Pterodactyl\Models\Server;
+use Xactyl\Models\Server;
 use Illuminate\Http\JsonResponse;
-use Pterodactyl\Facades\Activity;
-use Pterodactyl\Models\Permission;
+use Xactyl\Facades\Activity;
+use Xactyl\Models\Permission;
 use Illuminate\Support\Facades\Log;
-use Pterodactyl\Repositories\Eloquent\SubuserRepository;
-use Pterodactyl\Services\Subusers\SubuserCreationService;
-use Pterodactyl\Repositories\Wings\DaemonServerRepository;
-use Pterodactyl\Transformers\Api\Client\SubuserTransformer;
-use Pterodactyl\Http\Controllers\Api\Client\ClientApiController;
-use Pterodactyl\Exceptions\Http\Connection\DaemonConnectionException;
-use Pterodactyl\Http\Requests\Api\Client\Servers\Subusers\GetSubuserRequest;
-use Pterodactyl\Http\Requests\Api\Client\Servers\Subusers\StoreSubuserRequest;
-use Pterodactyl\Http\Requests\Api\Client\Servers\Subusers\DeleteSubuserRequest;
-use Pterodactyl\Http\Requests\Api\Client\Servers\Subusers\UpdateSubuserRequest;
+use Xactyl\Repositories\Eloquent\SubuserRepository;
+use Xactyl\Services\Subusers\SubuserCreationService;
+use Xactyl\Repositories\Wings\DaemonServerRepository;
+use Xactyl\Transformers\Api\Client\SubuserTransformer;
+use Xactyl\Http\Controllers\Api\Client\ClientApiController;
+use Xactyl\Exceptions\Http\Connection\DaemonConnectionException;
+use Xactyl\Http\Requests\Api\Client\Servers\Subusers\GetSubuserRequest;
+use Xactyl\Http\Requests\Api\Client\Servers\Subusers\StoreSubuserRequest;
+use Xactyl\Http\Requests\Api\Client\Servers\Subusers\DeleteSubuserRequest;
+use Xactyl\Http\Requests\Api\Client\Servers\Subusers\UpdateSubuserRequest;
 
 class SubuserController extends ClientApiController
 {
@@ -57,9 +57,9 @@ class SubuserController extends ClientApiController
     /**
      * Create a new subuser for the given server.
      *
-     * @throws \Pterodactyl\Exceptions\Model\DataValidationException
-     * @throws \Pterodactyl\Exceptions\Service\Subuser\ServerSubuserExistsException
-     * @throws \Pterodactyl\Exceptions\Service\Subuser\UserIsServerOwnerException
+     * @throws \Xactyl\Exceptions\Model\DataValidationException
+     * @throws \Xactyl\Exceptions\Service\Subuser\ServerSubuserExistsException
+     * @throws \Xactyl\Exceptions\Service\Subuser\UserIsServerOwnerException
      * @throws \Throwable
      */
     public function store(StoreSubuserRequest $request, Server $server): array
@@ -83,12 +83,12 @@ class SubuserController extends ClientApiController
     /**
      * Update a given subuser in the system for the server.
      *
-     * @throws \Pterodactyl\Exceptions\Model\DataValidationException
-     * @throws \Pterodactyl\Exceptions\Repository\RecordNotFoundException
+     * @throws \Xactyl\Exceptions\Model\DataValidationException
+     * @throws \Xactyl\Exceptions\Repository\RecordNotFoundException
      */
     public function update(UpdateSubuserRequest $request, Server $server): array
     {
-        /** @var \Pterodactyl\Models\Subuser $subuser */
+        /** @var \Xactyl\Models\Subuser $subuser */
         $subuser = $request->attributes->get('subuser');
 
         $permissions = $this->getDefaultPermissions($request);
@@ -138,7 +138,7 @@ class SubuserController extends ClientApiController
      */
     public function delete(DeleteSubuserRequest $request, Server $server): JsonResponse
     {
-        /** @var \Pterodactyl\Models\Subuser $subuser */
+        /** @var \Xactyl\Models\Subuser $subuser */
         $subuser = $request->attributes->get('subuser');
 
         $log = Activity::event('server:subuser.delete')

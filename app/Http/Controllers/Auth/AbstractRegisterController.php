@@ -1,6 +1,6 @@
 <?php
 
-namespace Pterodactyl\Http\Controllers\Auth;
+namespace Xactyl\Http\Controllers\Auth;
 
 use Illuminate\Http\Request;
 use Illuminate\Auth\AuthManager;
@@ -8,11 +8,11 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Auth\Events\Failed;
 use Illuminate\Container\Container;
 use Illuminate\Support\Facades\Event;
-use Pterodactyl\Exceptions\DisplayException;
-use Pterodactyl\Http\Controllers\Controller;
+use Xactyl\Exceptions\DisplayException;
+use Xactyl\Http\Controllers\Controller;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use Pterodactyl\Services\Users\UserCreationService;
+use Xactyl\Services\Users\UserCreationService;
 
 abstract class AbstractRegisterController extends Controller
 {
@@ -43,7 +43,7 @@ abstract class AbstractRegisterController extends Controller
     /**
      * Get the failed register response instance.
      *
-     * @throws \Pterodactyl\Exceptions\DisplayException
+     * @throws \Xactyl\Exceptions\DisplayException
      */
     protected function sendFailedRegisterResponse(Request $request, Authenticatable $user = null, string $message = null)
     {
@@ -66,7 +66,7 @@ abstract class AbstractRegisterController extends Controller
         $connection = app(\Illuminate\Database\ConnectionInterface::class);
         $hasher = app(\Illuminate\Contracts\Hashing\Hasher::class);
         $passwordBroker = app(\Illuminate\Contracts\Auth\PasswordBroker::class);
-        $repository = app(\Pterodactyl\Contracts\Repository\UserRepositoryInterface::class);
+        $repository = app(\Xactyl\Contracts\Repository\UserRepositoryInterface::class);
 
         $user = new UserCreationService($connection, $hasher, $passwordBroker, $repository);
 

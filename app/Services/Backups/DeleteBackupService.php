@@ -1,15 +1,15 @@
 <?php
 
-namespace Pterodactyl\Services\Backups;
+namespace Xactyl\Services\Backups;
 
 use Illuminate\Http\Response;
-use Pterodactyl\Models\Backup;
+use Xactyl\Models\Backup;
 use GuzzleHttp\Exception\ClientException;
 use Illuminate\Database\ConnectionInterface;
-use Pterodactyl\Extensions\Backups\BackupManager;
-use Pterodactyl\Repositories\Wings\DaemonBackupRepository;
-use Pterodactyl\Exceptions\Service\Backup\BackupLockedException;
-use Pterodactyl\Exceptions\Http\Connection\DaemonConnectionException;
+use Xactyl\Extensions\Backups\BackupManager;
+use Xactyl\Repositories\Wings\DaemonBackupRepository;
+use Xactyl\Exceptions\Service\Backup\BackupLockedException;
+use Xactyl\Exceptions\Http\Connection\DaemonConnectionException;
 
 class DeleteBackupService
 {
@@ -70,7 +70,7 @@ class DeleteBackupService
         $this->connection->transaction(function () use ($backup) {
             $backup->delete();
 
-            /** @var \Pterodactyl\Extensions\Filesystem\S3Filesystem $adapter */
+            /** @var \Xactyl\Extensions\Filesystem\S3Filesystem $adapter */
             $adapter = $this->manager->adapter(Backup::ADAPTER_AWS_S3);
 
             $adapter->getClient()->deleteObject([

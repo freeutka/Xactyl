@@ -1,10 +1,10 @@
 <?php
 //
-//namespace Pterodactyl\Console\Commands;
+//namespace Xactyl\Console\Commands;
 //
 //use Illuminate\Console\Command;
 //use Symfony\Component\VarDumper\VarDumper;
-//use Pterodactyl\Services\Telemetry\TelemetryCollectionService;
+//use Xactyl\Services\Telemetry\TelemetryCollectionService;
 //
 //class TelemetryCommand extends Command
 //{
@@ -23,7 +23,7 @@
 //    /**
 //     * Handle execution of command.
 //     *
-//     * @throws \Pterodactyl\Exceptions\Model\DataValidationException
+//     * @throws \Xactyl\Exceptions\Model\DataValidationException
 //     */
 //    public function handle()
 //    {

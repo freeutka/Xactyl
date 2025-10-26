@@ -1,23 +1,23 @@
 <?php
 
-namespace Pterodactyl\Http\Controllers\Api\Client\Servers;
+namespace Xactyl\Http\Controllers\Api\Client\Servers;
 
-use Pterodactyl\Models\Task;
+use Xactyl\Models\Task;
 use Illuminate\Http\Response;
-use Pterodactyl\Models\Server;
-use Pterodactyl\Models\Schedule;
+use Xactyl\Models\Server;
+use Xactyl\Models\Schedule;
 use Illuminate\Http\JsonResponse;
-use Pterodactyl\Facades\Activity;
-use Pterodactyl\Models\Permission;
+use Xactyl\Facades\Activity;
+use Xactyl\Models\Permission;
 use Illuminate\Database\ConnectionInterface;
-use Pterodactyl\Repositories\Eloquent\TaskRepository;
-use Pterodactyl\Exceptions\Http\HttpForbiddenException;
-use Pterodactyl\Transformers\Api\Client\TaskTransformer;
-use Pterodactyl\Http\Requests\Api\Client\ClientApiRequest;
-use Pterodactyl\Http\Controllers\Api\Client\ClientApiController;
-use Pterodactyl\Exceptions\Service\ServiceLimitExceededException;
+use Xactyl\Repositories\Eloquent\TaskRepository;
+use Xactyl\Exceptions\Http\HttpForbiddenException;
+use Xactyl\Transformers\Api\Client\TaskTransformer;
+use Xactyl\Http\Requests\Api\Client\ClientApiRequest;
+use Xactyl\Http\Controllers\Api\Client\ClientApiController;
+use Xactyl\Exceptions\Service\ServiceLimitExceededException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Pterodactyl\Http\Requests\Api\Client\Servers\Schedules\StoreTaskRequest;
+use Xactyl\Http\Requests\Api\Client\Servers\Schedules\StoreTaskRequest;
 
 class ScheduleTaskController extends ClientApiController
 {
@@ -34,8 +34,8 @@ class ScheduleTaskController extends ClientApiController
     /**
      * Create a new task for a given schedule and store it in the database.
      *
-     * @throws \Pterodactyl\Exceptions\Model\DataValidationException
-     * @throws \Pterodactyl\Exceptions\Service\ServiceLimitExceededException
+     * @throws \Xactyl\Exceptions\Model\DataValidationException
+     * @throws \Xactyl\Exceptions\Service\ServiceLimitExceededException
      */
     public function store(StoreTaskRequest $request, Server $server, Schedule $schedule): array
     {
@@ -48,10 +48,10 @@ class ScheduleTaskController extends ClientApiController
             throw new HttpForbiddenException("A backup task cannot be created when the server's backup limit is set to 0.");
         }
 
-        /** @var \Pterodactyl\Models\Task|null $lastTask */
+        /** @var \Xactyl\Models\Task|null $lastTask */
         $lastTask = $schedule->tasks()->orderByDesc('sequence_id')->first();
 
-        /** @var \Pterodactyl\Models\Task $task */
+        /** @var \Xactyl\Models\Task $task */
         $task = $this->connection->transaction(function () use ($request, $schedule, $lastTask) {
             $sequenceId = ($lastTask->sequence_id ?? 0) + 1;
             $requestSequenceId = $request->integer('sequence_id', $sequenceId);
@@ -95,8 +95,8 @@ class ScheduleTaskController extends ClientApiController
     /**
      * Updates a given task for a server.
      *
-     * @throws \Pterodactyl\Exceptions\Model\DataValidationException
-     * @throws \Pterodactyl\Exceptions\Repository\RecordNotFoundException
+     * @throws \Xactyl\Exceptions\Model\DataValidationException
+     * @throws \Xactyl\Exceptions\Repository\RecordNotFoundException
      */
     public function update(StoreTaskRequest $request, Server $server, Schedule $schedule, Task $task): array
     {

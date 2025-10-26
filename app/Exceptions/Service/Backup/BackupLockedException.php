@@ -1,8 +1,8 @@
 <?php
 
-namespace Pterodactyl\Exceptions\Service\Backup;
+namespace Xactyl\Exceptions\Service\Backup;
 
-use Pterodactyl\Exceptions\DisplayException;
+use Xactyl\Exceptions\DisplayException;
 
 class BackupLockedException extends DisplayException
 {

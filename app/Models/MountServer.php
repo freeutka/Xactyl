@@ -1,6 +1,6 @@
 <?php
 
-namespace Pterodactyl\Models;
+namespace Xactyl\Models;
 
 use Illuminate\Database\Eloquent\Model;
 

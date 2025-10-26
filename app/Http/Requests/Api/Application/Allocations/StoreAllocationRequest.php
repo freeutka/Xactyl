@@ -1,9 +1,9 @@
 <?php
 
-namespace Pterodactyl\Http\Requests\Api\Application\Allocations;
+namespace Xactyl\Http\Requests\Api\Application\Allocations;
 
-use Pterodactyl\Services\Acl\Api\AdminAcl;
-use Pterodactyl\Http\Requests\Api\Application\ApplicationApiRequest;
+use Xactyl\Services\Acl\Api\AdminAcl;
+use Xactyl\Http\Requests\Api\Application\ApplicationApiRequest;
 
 class StoreAllocationRequest extends ApplicationApiRequest
 {

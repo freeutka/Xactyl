@@ -1,21 +1,21 @@
 <?php
 
-namespace Pterodactyl\Http\Controllers\Admin\Settings;
+namespace Xactyl\Http\Controllers\Admin\Settings;
 
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Contracts\Console\Kernel;
-use Pterodactyl\Notifications\MailTested;
+use Xactyl\Notifications\MailTested;
 use Illuminate\View\Factory as ViewFactory;
 use Illuminate\Support\Facades\Notification;
-use Pterodactyl\Exceptions\DisplayException;
-use Pterodactyl\Http\Controllers\Controller;
+use Xactyl\Exceptions\DisplayException;
+use Xactyl\Http\Controllers\Controller;
 use Illuminate\Contracts\Encryption\Encrypter;
-use Pterodactyl\Providers\SettingsServiceProvider;
+use Xactyl\Providers\SettingsServiceProvider;
 use Illuminate\Contracts\Config\Repository as ConfigRepository;
-use Pterodactyl\Contracts\Repository\SettingsRepositoryInterface;
-use Pterodactyl\Http\Requests\Admin\Settings\MailSettingsFormRequest;
+use Xactyl\Contracts\Repository\SettingsRepositoryInterface;
+use Xactyl\Http\Requests\Admin\Settings\MailSettingsFormRequest;
 
 class MailController extends Controller
 {
@@ -46,8 +46,8 @@ class MailController extends Controller
      * Handle request to update SMTP mail settings.
      *
      * @throws DisplayException
-     * @throws \Pterodactyl\Exceptions\Model\DataValidationException
-     * @throws \Pterodactyl\Exceptions\Repository\RecordNotFoundException
+     * @throws \Xactyl\Exceptions\Model\DataValidationException
+     * @throws \Xactyl\Exceptions\Repository\RecordNotFoundException
      */
     public function update(MailSettingsFormRequest $request): Response
     {

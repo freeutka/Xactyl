@@ -1,8 +1,8 @@
 <?php
 
-namespace Pterodactyl\Contracts\Core;
+namespace Xactyl\Contracts\Core;
 
-use Pterodactyl\Events\Event;
+use Xactyl\Events\Event;
 
 interface ReceivesEvents
 {

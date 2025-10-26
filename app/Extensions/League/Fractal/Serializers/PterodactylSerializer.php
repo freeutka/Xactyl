@@ -1,6 +1,6 @@
 <?php
 
-namespace Pterodactyl\Extensions\League\Fractal\Serializers;
+namespace Xactyl\Extensions\League\Fractal\Serializers;
 
 use League\Fractal\Serializer\ArraySerializer;
 

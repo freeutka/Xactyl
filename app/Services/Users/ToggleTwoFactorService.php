@@ -1,16 +1,16 @@
 <?php
 
-namespace Pterodactyl\Services\Users;
+namespace Xactyl\Services\Users;
 
 use Carbon\Carbon;
 use Illuminate\Support\Str;
-use Pterodactyl\Models\User;
+use Xactyl\Models\User;
 use PragmaRX\Google2FA\Google2FA;
 use Illuminate\Database\ConnectionInterface;
 use Illuminate\Contracts\Encryption\Encrypter;
-use Pterodactyl\Contracts\Repository\UserRepositoryInterface;
-use Pterodactyl\Repositories\Eloquent\RecoveryTokenRepository;
-use Pterodactyl\Exceptions\Service\User\TwoFactorAuthenticationTokenInvalid;
+use Xactyl\Contracts\Repository\UserRepositoryInterface;
+use Xactyl\Repositories\Eloquent\RecoveryTokenRepository;
+use Xactyl\Exceptions\Service\User\TwoFactorAuthenticationTokenInvalid;
 
 class ToggleTwoFactorService
 {
@@ -33,7 +33,7 @@ class ToggleTwoFactorService
      * @throws \PragmaRX\Google2FA\Exceptions\IncompatibleWithGoogleAuthenticatorException
      * @throws \PragmaRX\Google2FA\Exceptions\InvalidCharactersException
      * @throws \PragmaRX\Google2FA\Exceptions\SecretKeyTooShortException
-     * @throws \Pterodactyl\Exceptions\Service\User\TwoFactorAuthenticationTokenInvalid
+     * @throws \Xactyl\Exceptions\Service\User\TwoFactorAuthenticationTokenInvalid
      */
     public function handle(User $user, string $token, bool $toggleState = null): array
     {

@@ -1,13 +1,13 @@
 <?php
 
-namespace Pterodactyl\Services\Eggs\Sharing;
+namespace Xactyl\Services\Eggs\Sharing;
 
-use Pterodactyl\Models\Egg;
+use Xactyl\Models\Egg;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Collection;
-use Pterodactyl\Models\EggVariable;
+use Xactyl\Models\EggVariable;
 use Illuminate\Database\ConnectionInterface;
-use Pterodactyl\Services\Eggs\EggParserService;
+use Xactyl\Services\Eggs\EggParserService;
 
 class EggUpdateImporterService
 {
@@ -21,7 +21,7 @@ class EggUpdateImporterService
     /**
      * Update an existing Egg using an uploaded JSON file.
      *
-     * @throws \Pterodactyl\Exceptions\Service\InvalidFileUploadException|\Throwable
+     * @throws \Xactyl\Exceptions\Service\InvalidFileUploadException|\Throwable
      */
     public function handle(Egg $egg, UploadedFile $file): Egg
     {

@@ -1,12 +1,12 @@
 <?php
 
-namespace Pterodactyl\Services\Databases;
+namespace Xactyl\Services\Databases;
 
 use Webmozart\Assert\Assert;
-use Pterodactyl\Models\Server;
-use Pterodactyl\Models\Database;
-use Pterodactyl\Models\DatabaseHost;
-use Pterodactyl\Exceptions\Service\Database\NoSuitableDatabaseHostException;
+use Xactyl\Models\Server;
+use Xactyl\Models\Database;
+use Xactyl\Models\DatabaseHost;
+use Xactyl\Exceptions\Service\Database\NoSuitableDatabaseHostException;
 
 class DeployServerDatabaseService
 {
@@ -19,8 +19,8 @@ class DeployServerDatabaseService
 
     /**
      * @throws \Throwable
-     * @throws \Pterodactyl\Exceptions\Service\Database\TooManyDatabasesException
-     * @throws \Pterodactyl\Exceptions\Service\Database\DatabaseClientFeatureNotEnabledException
+     * @throws \Xactyl\Exceptions\Service\Database\TooManyDatabasesException
+     * @throws \Xactyl\Exceptions\Service\Database\DatabaseClientFeatureNotEnabledException
      */
     public function handle(Server $server, array $data): Database
     {

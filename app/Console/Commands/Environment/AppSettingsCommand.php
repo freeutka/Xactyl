@@ -1,10 +1,10 @@
 <?php
 
-namespace Pterodactyl\Console\Commands\Environment;
+namespace Xactyl\Console\Commands\Environment;
 
 use Illuminate\Console\Command;
 use Illuminate\Contracts\Console\Kernel;
-use Pterodactyl\Traits\Commands\EnvironmentWriterTrait;
+use Xactyl\Traits\Commands\EnvironmentWriterTrait;
 
 class AppSettingsCommand extends Command
 {
@@ -58,7 +58,7 @@ class AppSettingsCommand extends Command
     /**
      * Handle command execution.
      *
-     * @throws \Pterodactyl\Exceptions\PterodactylException
+     * @throws \Xactyl\Exceptions\PterodactylException
      */
     public function handle(): int
     {

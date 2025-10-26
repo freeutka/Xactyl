@@ -1,12 +1,12 @@
 <?php
 
-namespace Pterodactyl\Repositories\Eloquent;
+namespace Xactyl\Repositories\Eloquent;
 
-use Pterodactyl\Models\Mount;
-use Pterodactyl\Models\Server;
+use Xactyl\Models\Mount;
+use Xactyl\Models\Server;
 use Illuminate\Support\Collection;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
-use Pterodactyl\Exceptions\Repository\RecordNotFoundException;
+use Xactyl\Exceptions\Repository\RecordNotFoundException;
 
 class MountRepository extends EloquentRepository
 {
@@ -29,7 +29,7 @@ class MountRepository extends EloquentRepository
     /**
      * Return all the mounts and their respective relations.
      *
-     * @throws \Pterodactyl\Exceptions\Repository\RecordNotFoundException
+     * @throws \Xactyl\Exceptions\Repository\RecordNotFoundException
      */
     public function getWithRelations(string $id): Mount
     {

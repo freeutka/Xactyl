@@ -1,17 +1,17 @@
 <?php
 
-namespace Pterodactyl\Http\Controllers\Api\Remote\Servers;
+namespace Xactyl\Http\Controllers\Api\Remote\Servers;
 
 use Illuminate\Http\Request;
-use Pterodactyl\Models\Server;
+use Xactyl\Models\Server;
 use Illuminate\Http\JsonResponse;
-use Pterodactyl\Facades\Activity;
+use Xactyl\Facades\Activity;
 use Illuminate\Database\ConnectionInterface;
-use Pterodactyl\Http\Controllers\Controller;
-use Pterodactyl\Services\Eggs\EggConfigurationService;
-use Pterodactyl\Repositories\Eloquent\ServerRepository;
-use Pterodactyl\Http\Resources\Wings\ServerConfigurationCollection;
-use Pterodactyl\Services\Servers\ServerConfigurationStructureService;
+use Xactyl\Http\Controllers\Controller;
+use Xactyl\Services\Eggs\EggConfigurationService;
+use Xactyl\Repositories\Eloquent\ServerRepository;
+use Xactyl\Http\Resources\Wings\ServerConfigurationCollection;
+use Xactyl\Services\Servers\ServerConfigurationStructureService;
 
 class ServerDetailsController extends Controller
 {
@@ -30,7 +30,7 @@ class ServerDetailsController extends Controller
      * Returns details about the server that allows Wings to self-recover and ensure
      * that the state of the server matches the Panel at all times.
      *
-     * @throws \Pterodactyl\Exceptions\Repository\RecordNotFoundException
+     * @throws \Xactyl\Exceptions\Repository\RecordNotFoundException
      */
     public function __invoke(Request $request, string $uuid): JsonResponse
     {
@@ -47,7 +47,7 @@ class ServerDetailsController extends Controller
      */
     public function list(Request $request): ServerConfigurationCollection
     {
-        /** @var \Pterodactyl\Models\Node $node */
+        /** @var \Xactyl\Models\Node $node */
         $node = $request->attributes->get('node');
 
         // Avoid run-away N+1 SQL queries by preloading the relationships that are used
@@ -90,9 +90,9 @@ class ServerDetailsController extends Controller
             ->get();
 
         $this->connection->transaction(function () use ($node, $servers) {
-            /** @var \Pterodactyl\Models\Server $server */
+            /** @var \Xactyl\Models\Server $server */
             foreach ($servers as $server) {
-                /** @var \Pterodactyl\Models\ActivityLog|null $activity */
+                /** @var \Xactyl\Models\ActivityLog|null $activity */
                 $activity = $server->activity->first();
                 if (!is_null($activity)) {
                     if ($subject = $activity->subjects->where('subject_type', 'backup')->first()) {

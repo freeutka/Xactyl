@@ -1,10 +1,10 @@
 <?php
 
-namespace Pterodactyl\Services\Eggs\Scripts;
+namespace Xactyl\Services\Eggs\Scripts;
 
-use Pterodactyl\Models\Egg;
-use Pterodactyl\Contracts\Repository\EggRepositoryInterface;
-use Pterodactyl\Exceptions\Service\Egg\InvalidCopyFromException;
+use Xactyl\Models\Egg;
+use Xactyl\Contracts\Repository\EggRepositoryInterface;
+use Xactyl\Exceptions\Service\Egg\InvalidCopyFromException;
 
 class InstallScriptService
 {
@@ -18,9 +18,9 @@ class InstallScriptService
     /**
      * Modify the install script for a given Egg.
      *
-     * @throws \Pterodactyl\Exceptions\Model\DataValidationException
-     * @throws \Pterodactyl\Exceptions\Repository\RecordNotFoundException
-     * @throws \Pterodactyl\Exceptions\Service\Egg\InvalidCopyFromException
+     * @throws \Xactyl\Exceptions\Model\DataValidationException
+     * @throws \Xactyl\Exceptions\Repository\RecordNotFoundException
+     * @throws \Xactyl\Exceptions\Service\Egg\InvalidCopyFromException
      */
     public function handle(Egg $egg, array $data): void
     {

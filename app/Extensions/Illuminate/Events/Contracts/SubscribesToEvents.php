@@ -1,6 +1,6 @@
 <?php
 
-namespace Pterodactyl\Extensions\Illuminate\Events\Contracts;
+namespace Xactyl\Extensions\Illuminate\Events\Contracts;
 
 use Illuminate\Contracts\Events\Dispatcher;
 

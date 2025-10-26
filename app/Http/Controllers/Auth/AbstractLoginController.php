@@ -1,17 +1,17 @@
 <?php
 
-namespace Pterodactyl\Http\Controllers\Auth;
+namespace Xactyl\Http\Controllers\Auth;
 
 use Illuminate\Http\Request;
-use Pterodactyl\Models\User;
+use Xactyl\Models\User;
 use Illuminate\Auth\AuthManager;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Auth\Events\Failed;
 use Illuminate\Container\Container;
 use Illuminate\Support\Facades\Event;
-use Pterodactyl\Events\Auth\DirectLogin;
-use Pterodactyl\Exceptions\DisplayException;
-use Pterodactyl\Http\Controllers\Controller;
+use Xactyl\Events\Auth\DirectLogin;
+use Xactyl\Exceptions\DisplayException;
+use Xactyl\Http\Controllers\Controller;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
@@ -49,7 +49,7 @@ abstract class AbstractLoginController extends Controller
     /**
      * Get the failed login response instance.
      *
-     * @throws \Pterodactyl\Exceptions\DisplayException
+     * @throws \Xactyl\Exceptions\DisplayException
      */
     protected function sendFailedLoginResponse(Request $request, Authenticatable $user = null, string $message = null)
     {

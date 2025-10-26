@@ -1,8 +1,8 @@
 <?php
 
-namespace Pterodactyl\Traits\Commands;
+namespace Xactyl\Traits\Commands;
 
-use Pterodactyl\Exceptions\PterodactylException;
+use Xactyl\Exceptions\PterodactylException;
 
 trait EnvironmentWriterTrait
 {
@@ -23,7 +23,7 @@ trait EnvironmentWriterTrait
     /**
      * Update the .env file for the application using the passed in values.
      *
-     * @throws \Pterodactyl\Exceptions\PterodactylException
+     * @throws \Xactyl\Exceptions\PterodactylException
      */
     public function writeToEnvironment(array $values = []): void
     {

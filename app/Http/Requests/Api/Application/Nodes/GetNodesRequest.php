@@ -1,9 +1,9 @@
 <?php
 
-namespace Pterodactyl\Http\Requests\Api\Application\Nodes;
+namespace Xactyl\Http\Requests\Api\Application\Nodes;
 
-use Pterodactyl\Services\Acl\Api\AdminAcl;
-use Pterodactyl\Http\Requests\Api\Application\ApplicationApiRequest;
+use Xactyl\Services\Acl\Api\AdminAcl;
+use Xactyl\Http\Requests\Api\Application\ApplicationApiRequest;
 
 class GetNodesRequest extends ApplicationApiRequest
 {

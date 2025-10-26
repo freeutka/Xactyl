@@ -1,16 +1,16 @@
 <?php
 
-namespace Pterodactyl\Http\Controllers\Admin\Nests;
+namespace Xactyl\Http\Controllers\Admin\Nests;
 
 use Illuminate\View\View;
-use Pterodactyl\Models\Egg;
+use Xactyl\Models\Egg;
 use Illuminate\Http\RedirectResponse;
 use Prologue\Alerts\AlertsMessageBag;
 use Illuminate\View\Factory as ViewFactory;
-use Pterodactyl\Http\Controllers\Controller;
-use Pterodactyl\Services\Eggs\Scripts\InstallScriptService;
-use Pterodactyl\Contracts\Repository\EggRepositoryInterface;
-use Pterodactyl\Http\Requests\Admin\Egg\EggScriptFormRequest;
+use Xactyl\Http\Controllers\Controller;
+use Xactyl\Services\Eggs\Scripts\InstallScriptService;
+use Xactyl\Contracts\Repository\EggRepositoryInterface;
+use Xactyl\Http\Requests\Admin\Egg\EggScriptFormRequest;
 
 class EggScriptController extends Controller
 {
@@ -51,9 +51,9 @@ class EggScriptController extends Controller
     /**
      * Handle a request to update the installation script for an Egg.
      *
-     * @throws \Pterodactyl\Exceptions\Model\DataValidationException
-     * @throws \Pterodactyl\Exceptions\Repository\RecordNotFoundException
-     * @throws \Pterodactyl\Exceptions\Service\Egg\InvalidCopyFromException
+     * @throws \Xactyl\Exceptions\Model\DataValidationException
+     * @throws \Xactyl\Exceptions\Repository\RecordNotFoundException
+     * @throws \Xactyl\Exceptions\Service\Egg\InvalidCopyFromException
      */
     public function update(EggScriptFormRequest $request, Egg $egg): RedirectResponse
     {

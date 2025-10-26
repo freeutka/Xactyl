@@ -1,10 +1,10 @@
 <?php
 
-namespace Pterodactyl\Http\Requests\Admin\Node;
+namespace Xactyl\Http\Requests\Admin\Node;
 
-use Pterodactyl\Rules\Fqdn;
-use Pterodactyl\Models\Node;
-use Pterodactyl\Http\Requests\Admin\AdminFormRequest;
+use Xactyl\Rules\Fqdn;
+use Xactyl\Models\Node;
+use Xactyl\Http\Requests\Admin\AdminFormRequest;
 
 class NodeFormRequest extends AdminFormRequest
 {

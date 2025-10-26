@@ -1,8 +1,8 @@
 <?php
 
-namespace Pterodactyl\Exceptions\Service\Database;
+namespace Xactyl\Exceptions\Service\Database;
 
-use Pterodactyl\Exceptions\PterodactylException;
+use Xactyl\Exceptions\PterodactylException;
 
 class DatabaseClientFeatureNotEnabledException extends PterodactylException
 {

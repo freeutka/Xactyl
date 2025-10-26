@@ -1,10 +1,10 @@
 <?php
 
-namespace Pterodactyl\Models;
+namespace Xactyl\Models;
 
 use Illuminate\Container\Container;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Pterodactyl\Contracts\Extensions\HashidsInterface;
+use Xactyl\Contracts\Extensions\HashidsInterface;
 
 /**
  * @property int $id
@@ -17,8 +17,8 @@ use Pterodactyl\Contracts\Extensions\HashidsInterface;
  * @property int $max_connections
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
- * @property \Pterodactyl\Models\Server $server
- * @property \Pterodactyl\Models\DatabaseHost $host
+ * @property \Xactyl\Models\Server $server
+ * @property \Xactyl\Models\DatabaseHost $host
  */
 class Database extends Model
 {

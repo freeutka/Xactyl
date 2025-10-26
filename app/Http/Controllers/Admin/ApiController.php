@@ -1,19 +1,19 @@
 <?php
 
-namespace Pterodactyl\Http\Controllers\Admin;
+namespace Xactyl\Http\Controllers\Admin;
 
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Pterodactyl\Models\ApiKey;
+use Xactyl\Models\ApiKey;
 use Illuminate\Http\RedirectResponse;
 use Prologue\Alerts\AlertsMessageBag;
-use Pterodactyl\Services\Acl\Api\AdminAcl;
+use Xactyl\Services\Acl\Api\AdminAcl;
 use Illuminate\View\Factory as ViewFactory;
-use Pterodactyl\Http\Controllers\Controller;
-use Pterodactyl\Services\Api\KeyCreationService;
-use Pterodactyl\Contracts\Repository\ApiKeyRepositoryInterface;
-use Pterodactyl\Http\Requests\Admin\Api\StoreApplicationApiKeyRequest;
+use Xactyl\Http\Controllers\Controller;
+use Xactyl\Services\Api\KeyCreationService;
+use Xactyl\Contracts\Repository\ApiKeyRepositoryInterface;
+use Xactyl\Http\Requests\Admin\Api\StoreApplicationApiKeyRequest;
 
 class ApiController extends Controller
 {
@@ -61,7 +61,7 @@ class ApiController extends Controller
     /**
      * Store the new key and redirect the user back to the application key listing.
      *
-     * @throws \Pterodactyl\Exceptions\Model\DataValidationException
+     * @throws \Xactyl\Exceptions\Model\DataValidationException
      */
     public function store(StoreApplicationApiKeyRequest $request): RedirectResponse
     {

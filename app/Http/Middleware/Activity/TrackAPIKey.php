@@ -1,10 +1,10 @@
 <?php
 
-namespace Pterodactyl\Http\Middleware\Activity;
+namespace Xactyl\Http\Middleware\Activity;
 
 use Illuminate\Http\Request;
-use Pterodactyl\Models\ApiKey;
-use Pterodactyl\Facades\LogTarget;
+use Xactyl\Models\ApiKey;
+use Xactyl\Facades\LogTarget;
 
 class TrackAPIKey
 {

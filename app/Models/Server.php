@@ -1,6 +1,6 @@
 <?php
 
-namespace Pterodactyl\Models;
+namespace Xactyl\Models;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Query\JoinClause;
@@ -10,10 +10,10 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
-use Pterodactyl\Exceptions\Http\Server\ServerStateConflictException;
+use Xactyl\Exceptions\Http\Server\ServerStateConflictException;
 
 /**
- * \Pterodactyl\Models\Server.
+ * \Xactyl\Models\Server.
  *
  * @property int $id
  * @property string|null $external_id
@@ -43,29 +43,29 @@ use Pterodactyl\Exceptions\Http\Server\ServerStateConflictException;
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property \Illuminate\Support\Carbon|null $installed_at
- * @property \Illuminate\Database\Eloquent\Collection|\Pterodactyl\Models\ActivityLog[] $activity
+ * @property \Illuminate\Database\Eloquent\Collection|\Xactyl\Models\ActivityLog[] $activity
  * @property int|null $activity_count
- * @property \Pterodactyl\Models\Allocation|null $allocation
- * @property \Illuminate\Database\Eloquent\Collection|\Pterodactyl\Models\Allocation[] $allocations
+ * @property \Xactyl\Models\Allocation|null $allocation
+ * @property \Illuminate\Database\Eloquent\Collection|\Xactyl\Models\Allocation[] $allocations
  * @property int|null $allocations_count
- * @property \Illuminate\Database\Eloquent\Collection|\Pterodactyl\Models\Backup[] $backups
+ * @property \Illuminate\Database\Eloquent\Collection|\Xactyl\Models\Backup[] $backups
  * @property int|null $backups_count
- * @property \Illuminate\Database\Eloquent\Collection|\Pterodactyl\Models\Database[] $databases
+ * @property \Illuminate\Database\Eloquent\Collection|\Xactyl\Models\Database[] $databases
  * @property int|null $databases_count
- * @property \Pterodactyl\Models\Egg|null $egg
- * @property \Illuminate\Database\Eloquent\Collection|\Pterodactyl\Models\Mount[] $mounts
+ * @property \Xactyl\Models\Egg|null $egg
+ * @property \Illuminate\Database\Eloquent\Collection|\Xactyl\Models\Mount[] $mounts
  * @property int|null $mounts_count
- * @property \Pterodactyl\Models\Nest $nest
- * @property \Pterodactyl\Models\Node $node
+ * @property \Xactyl\Models\Nest $nest
+ * @property \Xactyl\Models\Node $node
  * @property \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
  * @property int|null $notifications_count
- * @property \Illuminate\Database\Eloquent\Collection|\Pterodactyl\Models\Schedule[] $schedules
+ * @property \Illuminate\Database\Eloquent\Collection|\Xactyl\Models\Schedule[] $schedules
  * @property int|null $schedules_count
- * @property \Illuminate\Database\Eloquent\Collection|\Pterodactyl\Models\Subuser[] $subusers
+ * @property \Illuminate\Database\Eloquent\Collection|\Xactyl\Models\Subuser[] $subusers
  * @property int|null $subusers_count
- * @property \Pterodactyl\Models\ServerTransfer|null $transfer
- * @property \Pterodactyl\Models\User $user
- * @property \Illuminate\Database\Eloquent\Collection|\Pterodactyl\Models\EggVariable[] $variables
+ * @property \Xactyl\Models\ServerTransfer|null $transfer
+ * @property \Xactyl\Models\User $user
+ * @property \Illuminate\Database\Eloquent\Collection|\Xactyl\Models\EggVariable[] $variables
  * @property int|null $variables_count
  *
  * @method static \Database\Factories\ServerFactory factory(...$parameters)
@@ -348,7 +348,7 @@ class Server extends Model
      * exception is raised. This should be called whenever something needs to make
      * sure the server is not in a weird state that should block user access.
      *
-     * @throws \Pterodactyl\Exceptions\Http\Server\ServerStateConflictException
+     * @throws \Xactyl\Exceptions\Http\Server\ServerStateConflictException
      */
     public function validateCurrentState()
     {

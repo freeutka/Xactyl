@@ -1,13 +1,13 @@
 <?php
 
-namespace Pterodactyl\Http\Requests\Api\Client;
+namespace Xactyl\Http\Requests\Api\Client;
 
-use Pterodactyl\Models\Server;
-use Pterodactyl\Contracts\Http\ClientPermissionsRequest;
-use Pterodactyl\Http\Requests\Api\Application\ApplicationApiRequest;
+use Xactyl\Models\Server;
+use Xactyl\Contracts\Http\ClientPermissionsRequest;
+use Xactyl\Http\Requests\Api\Application\ApplicationApiRequest;
 
 /**
- * @method \Pterodactyl\Models\User user($guard = null)
+ * @method \Xactyl\Models\User user($guard = null)
  */
 class ClientApiRequest extends ApplicationApiRequest
 {

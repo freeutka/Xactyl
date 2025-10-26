@@ -1,10 +1,10 @@
 <?php
 
-namespace Pterodactyl\Services\Users;
+namespace Xactyl\Services\Users;
 
-use Pterodactyl\Models\User;
+use Xactyl\Models\User;
 use Illuminate\Contracts\Encryption\Encrypter;
-use Pterodactyl\Contracts\Repository\UserRepositoryInterface;
+use Xactyl\Contracts\Repository\UserRepositoryInterface;
 use Illuminate\Contracts\Config\Repository as ConfigRepository;
 
 class TwoFactorSetupService
@@ -26,8 +26,8 @@ class TwoFactorSetupService
      * QR code URL. This URL will need to be attached to a QR generating service in
      * order to function.
      *
-     * @throws \Pterodactyl\Exceptions\Model\DataValidationException
-     * @throws \Pterodactyl\Exceptions\Repository\RecordNotFoundException
+     * @throws \Xactyl\Exceptions\Model\DataValidationException
+     * @throws \Xactyl\Exceptions\Repository\RecordNotFoundException
      */
     public function handle(User $user): array
     {

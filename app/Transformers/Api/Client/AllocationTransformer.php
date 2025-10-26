@@ -1,8 +1,8 @@
 <?php
 
-namespace Pterodactyl\Transformers\Api\Client;
+namespace Xactyl\Transformers\Api\Client;
 
-use Pterodactyl\Models\Allocation;
+use Xactyl\Models\Allocation;
 
 class AllocationTransformer extends BaseClientTransformer
 {

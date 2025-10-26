@@ -1,21 +1,21 @@
 <?php
 
-namespace Pterodactyl\Http\Controllers\Api\Remote;
+namespace Xactyl\Http\Controllers\Api\Remote;
 
 use Illuminate\Http\Request;
-use Pterodactyl\Models\User;
-use Pterodactyl\Models\Server;
+use Xactyl\Models\User;
+use Xactyl\Models\Server;
 use Illuminate\Http\JsonResponse;
-use Pterodactyl\Facades\Activity;
-use Pterodactyl\Models\Permission;
+use Xactyl\Facades\Activity;
+use Xactyl\Models\Permission;
 use phpseclib3\Crypt\PublicKeyLoader;
-use Pterodactyl\Http\Controllers\Controller;
+use Xactyl\Http\Controllers\Controller;
 use phpseclib3\Exception\NoKeyLoadedException;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
-use Pterodactyl\Exceptions\Http\HttpForbiddenException;
-use Pterodactyl\Services\Servers\GetUserPermissionsService;
+use Xactyl\Exceptions\Http\HttpForbiddenException;
+use Xactyl\Services\Servers\GetUserPermissionsService;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
-use Pterodactyl\Http\Requests\Api\Remote\SftpAuthenticationFormRequest;
+use Xactyl\Http\Requests\Api\Remote\SftpAuthenticationFormRequest;
 use Symfony\Component\HttpKernel\Exception\TooManyRequestsHttpException;
 
 class SftpAuthenticationController extends Controller

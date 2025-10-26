@@ -1,15 +1,15 @@
 <?php
 
-namespace Pterodactyl\Http\Requests\Api\Application;
+namespace Xactyl\Http\Requests\Api\Application;
 
 use Webmozart\Assert\Assert;
-use Pterodactyl\Models\ApiKey;
+use Xactyl\Models\ApiKey;
 use Laravel\Sanctum\TransientToken;
 use Illuminate\Validation\Validator;
 use Illuminate\Database\Eloquent\Model;
-use Pterodactyl\Services\Acl\Api\AdminAcl;
+use Xactyl\Services\Acl\Api\AdminAcl;
 use Illuminate\Foundation\Http\FormRequest;
-use Pterodactyl\Exceptions\PterodactylException;
+use Xactyl\Exceptions\PterodactylException;
 
 abstract class ApplicationApiRequest extends FormRequest
 {
@@ -29,7 +29,7 @@ abstract class ApplicationApiRequest extends FormRequest
      * Determine if the current user is authorized to perform
      * the requested action against the API.
      *
-     * @throws \Pterodactyl\Exceptions\PterodactylException
+     * @throws \Xactyl\Exceptions\PterodactylException
      */
     public function authorize(): bool
     {

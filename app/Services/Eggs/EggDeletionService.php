@@ -1,11 +1,11 @@
 <?php
 
-namespace Pterodactyl\Services\Eggs;
+namespace Xactyl\Services\Eggs;
 
-use Pterodactyl\Contracts\Repository\EggRepositoryInterface;
-use Pterodactyl\Exceptions\Service\Egg\HasChildrenException;
-use Pterodactyl\Exceptions\Service\HasActiveServersException;
-use Pterodactyl\Contracts\Repository\ServerRepositoryInterface;
+use Xactyl\Contracts\Repository\EggRepositoryInterface;
+use Xactyl\Exceptions\Service\Egg\HasChildrenException;
+use Xactyl\Exceptions\Service\HasActiveServersException;
+use Xactyl\Contracts\Repository\ServerRepositoryInterface;
 
 class EggDeletionService
 {
@@ -21,8 +21,8 @@ class EggDeletionService
     /**
      * Delete an Egg from the database if it has no active servers attached to it.
      *
-     * @throws \Pterodactyl\Exceptions\Service\HasActiveServersException
-     * @throws \Pterodactyl\Exceptions\Service\Egg\HasChildrenException
+     * @throws \Xactyl\Exceptions\Service\HasActiveServersException
+     * @throws \Xactyl\Exceptions\Service\Egg\HasChildrenException
      */
     public function handle(int $egg): int
     {

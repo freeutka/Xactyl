@@ -1,14 +1,14 @@
 <?php
 
-namespace Pterodactyl\Http\Controllers\Api\Client;
+namespace Xactyl\Http\Controllers\Api\Client;
 
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Http\JsonResponse;
-use Pterodactyl\Facades\Activity;
-use Pterodactyl\Services\Users\TwoFactorSetupService;
-use Pterodactyl\Services\Users\ToggleTwoFactorService;
+use Xactyl\Facades\Activity;
+use Xactyl\Services\Users\TwoFactorSetupService;
+use Xactyl\Services\Users\ToggleTwoFactorService;
 use Illuminate\Contracts\Validation\Factory as ValidationFactory;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
@@ -30,8 +30,8 @@ class TwoFactorController extends ClientApiController
      * it on their account. If two-factor is already enabled this endpoint
      * will return a 400 error.
      *
-     * @throws \Pterodactyl\Exceptions\Model\DataValidationException
-     * @throws \Pterodactyl\Exceptions\Repository\RecordNotFoundException
+     * @throws \Xactyl\Exceptions\Model\DataValidationException
+     * @throws \Xactyl\Exceptions\Repository\RecordNotFoundException
      */
     public function index(Request $request): JsonResponse
     {
@@ -86,7 +86,7 @@ class TwoFactorController extends ClientApiController
             throw new BadRequestHttpException('The password provided was not valid.');
         }
 
-        /** @var \Pterodactyl\Models\User $user */
+        /** @var \Xactyl\Models\User $user */
         $user = $request->user();
 
         $user->update([

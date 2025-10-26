@@ -1,10 +1,10 @@
 <?php
 
-namespace Pterodactyl\Services\Nests;
+namespace Xactyl\Services\Nests;
 
 use Ramsey\Uuid\Uuid;
-use Pterodactyl\Models\Nest;
-use Pterodactyl\Contracts\Repository\NestRepositoryInterface;
+use Xactyl\Models\Nest;
+use Xactyl\Contracts\Repository\NestRepositoryInterface;
 use Illuminate\Contracts\Config\Repository as ConfigRepository;
 
 class NestCreationService
@@ -19,7 +19,7 @@ class NestCreationService
     /**
      * Create a new nest on the system.
      *
-     * @throws \Pterodactyl\Exceptions\Model\DataValidationException
+     * @throws \Xactyl\Exceptions\Model\DataValidationException
      */
     public function handle(array $data, string $author = null): Nest
     {

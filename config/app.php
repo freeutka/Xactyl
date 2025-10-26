@@ -192,16 +192,16 @@ return [
         /*
          * Application Service Providers...
          */
-        Pterodactyl\Providers\ActivityLogServiceProvider::class,
-        Pterodactyl\Providers\AppServiceProvider::class,
-        Pterodactyl\Providers\AuthServiceProvider::class,
-        Pterodactyl\Providers\BackupsServiceProvider::class,
-        Pterodactyl\Providers\BladeServiceProvider::class,
-        Pterodactyl\Providers\EventServiceProvider::class,
-        Pterodactyl\Providers\HashidsServiceProvider::class,
-        Pterodactyl\Providers\RouteServiceProvider::class,
-        Pterodactyl\Providers\RepositoryServiceProvider::class,
-        Pterodactyl\Providers\ViewComposerServiceProvider::class,
+        Xactyl\Providers\ActivityLogServiceProvider::class,
+        Xactyl\Providers\AppServiceProvider::class,
+        Xactyl\Providers\AuthServiceProvider::class,
+        Xactyl\Providers\BackupsServiceProvider::class,
+        Xactyl\Providers\BladeServiceProvider::class,
+        Xactyl\Providers\EventServiceProvider::class,
+        Xactyl\Providers\HashidsServiceProvider::class,
+        Xactyl\Providers\RouteServiceProvider::class,
+        Xactyl\Providers\RepositoryServiceProvider::class,
+        Xactyl\Providers\ViewComposerServiceProvider::class,
 
         /*
          * Additional Dependencies
@@ -224,11 +224,11 @@ return [
         'Alert' => Prologue\Alerts\Facades\Alert::class,
         'Carbon' => Carbon\Carbon::class,
         'JavaScript' => Laracasts\Utilities\JavaScript\JavaScriptFacade::class,
-        'Theme' => Pterodactyl\Extensions\Facades\Theme::class,
+        'Theme' => Xactyl\Extensions\Facades\Theme::class,
 
         // Custom Facades
-        'Activity' => Pterodactyl\Facades\Activity::class,
-        'LogBatch' => Pterodactyl\Facades\LogBatch::class,
-        'LogTarget' => Pterodactyl\Facades\LogTarget::class,
+        'Activity' => Xactyl\Facades\Activity::class,
+        'LogBatch' => Xactyl\Facades\LogBatch::class,
+        'LogTarget' => Xactyl\Facades\LogTarget::class,
     ])->toArray(),
 ];

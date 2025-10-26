@@ -1,38 +1,38 @@
 <?php
 
-namespace Pterodactyl\Http\Controllers\Admin;
+namespace Xactyl\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-use Pterodactyl\Models\User;
+use Xactyl\Models\User;
 use Illuminate\Http\Response;
-use Pterodactyl\Models\Mount;
-use Pterodactyl\Models\Server;
-use Pterodactyl\Models\Database;
-use Pterodactyl\Models\MountServer;
+use Xactyl\Models\Mount;
+use Xactyl\Models\Server;
+use Xactyl\Models\Database;
+use Xactyl\Models\MountServer;
 use Illuminate\Http\RedirectResponse;
 use Prologue\Alerts\AlertsMessageBag;
-use Pterodactyl\Exceptions\DisplayException;
-use Pterodactyl\Http\Controllers\Controller;
+use Xactyl\Exceptions\DisplayException;
+use Xactyl\Http\Controllers\Controller;
 use Illuminate\Validation\ValidationException;
-use Pterodactyl\Services\Servers\SuspensionService;
-use Pterodactyl\Repositories\Eloquent\MountRepository;
-use Pterodactyl\Services\Servers\ServerDeletionService;
-use Pterodactyl\Services\Servers\ReinstallServerService;
-use Pterodactyl\Exceptions\Model\DataValidationException;
-use Pterodactyl\Repositories\Wings\DaemonServerRepository;
-use Pterodactyl\Services\Servers\BuildModificationService;
-use Pterodactyl\Services\Databases\DatabasePasswordService;
-use Pterodactyl\Services\Servers\DetailsModificationService;
-use Pterodactyl\Services\Servers\StartupModificationService;
-use Pterodactyl\Contracts\Repository\NestRepositoryInterface;
-use Pterodactyl\Repositories\Eloquent\DatabaseHostRepository;
-use Pterodactyl\Services\Databases\DatabaseManagementService;
+use Xactyl\Services\Servers\SuspensionService;
+use Xactyl\Repositories\Eloquent\MountRepository;
+use Xactyl\Services\Servers\ServerDeletionService;
+use Xactyl\Services\Servers\ReinstallServerService;
+use Xactyl\Exceptions\Model\DataValidationException;
+use Xactyl\Repositories\Wings\DaemonServerRepository;
+use Xactyl\Services\Servers\BuildModificationService;
+use Xactyl\Services\Databases\DatabasePasswordService;
+use Xactyl\Services\Servers\DetailsModificationService;
+use Xactyl\Services\Servers\StartupModificationService;
+use Xactyl\Contracts\Repository\NestRepositoryInterface;
+use Xactyl\Repositories\Eloquent\DatabaseHostRepository;
+use Xactyl\Services\Databases\DatabaseManagementService;
 use Illuminate\Contracts\Config\Repository as ConfigRepository;
-use Pterodactyl\Contracts\Repository\ServerRepositoryInterface;
-use Pterodactyl\Contracts\Repository\DatabaseRepositoryInterface;
-use Pterodactyl\Contracts\Repository\AllocationRepositoryInterface;
-use Pterodactyl\Services\Servers\ServerConfigurationStructureService;
-use Pterodactyl\Http\Requests\Admin\Servers\Databases\StoreServerDatabaseRequest;
+use Xactyl\Contracts\Repository\ServerRepositoryInterface;
+use Xactyl\Contracts\Repository\DatabaseRepositoryInterface;
+use Xactyl\Contracts\Repository\AllocationRepositoryInterface;
+use Xactyl\Services\Servers\ServerConfigurationStructureService;
+use Xactyl\Http\Requests\Admin\Servers\Databases\StoreServerDatabaseRequest;
 
 class ServersController extends Controller
 {
@@ -64,8 +64,8 @@ class ServersController extends Controller
     /**
      * Update the details for a server.
      *
-     * @throws \Pterodactyl\Exceptions\Model\DataValidationException
-     * @throws \Pterodactyl\Exceptions\Repository\RecordNotFoundException
+     * @throws \Xactyl\Exceptions\Model\DataValidationException
+     * @throws \Xactyl\Exceptions\Repository\RecordNotFoundException
      */
     public function setDetails(Request $request, Server $server): RedirectResponse
     {
@@ -81,9 +81,9 @@ class ServersController extends Controller
     /**
      * Toggles the installation status for a server.
      *
-     * @throws \Pterodactyl\Exceptions\DisplayException
-     * @throws \Pterodactyl\Exceptions\Model\DataValidationException
-     * @throws \Pterodactyl\Exceptions\Repository\RecordNotFoundException
+     * @throws \Xactyl\Exceptions\DisplayException
+     * @throws \Xactyl\Exceptions\Model\DataValidationException
+     * @throws \Xactyl\Exceptions\Repository\RecordNotFoundException
      */
     public function toggleInstall(Server $server): RedirectResponse
     {
@@ -103,9 +103,9 @@ class ServersController extends Controller
     /**
      * Reinstalls the server with the currently assigned service.
      *
-     * @throws \Pterodactyl\Exceptions\DisplayException
-     * @throws \Pterodactyl\Exceptions\Model\DataValidationException
-     * @throws \Pterodactyl\Exceptions\Repository\RecordNotFoundException
+     * @throws \Xactyl\Exceptions\DisplayException
+     * @throws \Xactyl\Exceptions\Model\DataValidationException
+     * @throws \Xactyl\Exceptions\Repository\RecordNotFoundException
      */
     public function reinstallServer(Server $server): RedirectResponse
     {
@@ -118,9 +118,9 @@ class ServersController extends Controller
     /**
      * Manage the suspension status for a server.
      *
-     * @throws \Pterodactyl\Exceptions\DisplayException
-     * @throws \Pterodactyl\Exceptions\Model\DataValidationException
-     * @throws \Pterodactyl\Exceptions\Repository\RecordNotFoundException
+     * @throws \Xactyl\Exceptions\DisplayException
+     * @throws \Xactyl\Exceptions\Model\DataValidationException
+     * @throws \Xactyl\Exceptions\Repository\RecordNotFoundException
      */
     public function manageSuspension(Request $request, Server $server): RedirectResponse
     {
@@ -135,8 +135,8 @@ class ServersController extends Controller
     /**
      * Update the build configuration for a server.
      *
-     * @throws \Pterodactyl\Exceptions\DisplayException
-     * @throws \Pterodactyl\Exceptions\Repository\RecordNotFoundException
+     * @throws \Xactyl\Exceptions\DisplayException
+     * @throws \Xactyl\Exceptions\Repository\RecordNotFoundException
      * @throws \Illuminate\Validation\ValidationException
      */
     public function updateBuild(Request $request, Server $server): RedirectResponse
@@ -159,7 +159,7 @@ class ServersController extends Controller
     /**
      * Start the server deletion process.
      *
-     * @throws \Pterodactyl\Exceptions\DisplayException
+     * @throws \Xactyl\Exceptions\DisplayException
      * @throws \Throwable
      */
     public function delete(Request $request, Server $server): RedirectResponse
@@ -220,7 +220,7 @@ class ServersController extends Controller
      */
     public function resetDatabasePassword(Request $request, Server $server): Response
     {
-        /** @var \Pterodactyl\Models\Database $database */
+        /** @var \Xactyl\Models\Database $database */
         $database = $server->databases()->findOrFail($request->input('database'));
 
         $this->databasePasswordService->handle($database);

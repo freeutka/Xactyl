@@ -1,19 +1,19 @@
 <?php
 
-namespace Pterodactyl\Http\Controllers\Admin\Servers;
+namespace Xactyl\Http\Controllers\Admin\Servers;
 
 use Carbon\CarbonImmutable;
 use Illuminate\Http\Request;
-use Pterodactyl\Models\Server;
+use Xactyl\Models\Server;
 use Illuminate\Http\RedirectResponse;
 use Prologue\Alerts\AlertsMessageBag;
-use Pterodactyl\Models\ServerTransfer;
+use Xactyl\Models\ServerTransfer;
 use Illuminate\Database\ConnectionInterface;
-use Pterodactyl\Http\Controllers\Controller;
-use Pterodactyl\Services\Nodes\NodeJWTService;
-use Pterodactyl\Repositories\Eloquent\NodeRepository;
-use Pterodactyl\Repositories\Wings\DaemonTransferRepository;
-use Pterodactyl\Contracts\Repository\AllocationRepositoryInterface;
+use Xactyl\Http\Controllers\Controller;
+use Xactyl\Services\Nodes\NodeJWTService;
+use Xactyl\Repositories\Eloquent\NodeRepository;
+use Xactyl\Repositories\Wings\DaemonTransferRepository;
+use Xactyl\Contracts\Repository\AllocationRepositoryInterface;
 
 class ServerTransferController extends Controller
 {

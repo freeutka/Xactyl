@@ -1,18 +1,18 @@
 <?php
 
-namespace Pterodactyl\Http\Controllers\Api\Remote\Backups;
+namespace Xactyl\Http\Controllers\Api\Remote\Backups;
 
 use Carbon\CarbonImmutable;
 use Illuminate\Http\Request;
-use Pterodactyl\Models\Backup;
+use Xactyl\Models\Backup;
 use Illuminate\Http\JsonResponse;
-use Pterodactyl\Facades\Activity;
-use Pterodactyl\Exceptions\DisplayException;
-use Pterodactyl\Http\Controllers\Controller;
-use Pterodactyl\Extensions\Backups\BackupManager;
-use Pterodactyl\Extensions\Filesystem\S3Filesystem;
+use Xactyl\Facades\Activity;
+use Xactyl\Exceptions\DisplayException;
+use Xactyl\Http\Controllers\Controller;
+use Xactyl\Extensions\Backups\BackupManager;
+use Xactyl\Extensions\Filesystem\S3Filesystem;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
-use Pterodactyl\Http\Requests\Api\Remote\ReportBackupCompleteRequest;
+use Xactyl\Http\Requests\Api\Remote\ReportBackupCompleteRequest;
 
 class BackupStatusController extends Controller
 {
@@ -31,17 +31,17 @@ class BackupStatusController extends Controller
     public function index(ReportBackupCompleteRequest $request, string $backup): JsonResponse
     {
         // Get the node associated with the request.
-        /** @var \Pterodactyl\Models\Node $node */
+        /** @var \Xactyl\Models\Node $node */
         $node = $request->attributes->get('node');
 
-        /** @var \Pterodactyl\Models\Backup $model */
+        /** @var \Xactyl\Models\Backup $model */
         $model = Backup::query()
             ->where('uuid', $backup)
             ->firstOrFail();
 
         // Check that the backup is "owned" by the node making the request. This avoids other nodes
         // from messing with backups that they don't own.
-        /** @var \Pterodactyl\Models\Server $server */
+        /** @var \Xactyl\Models\Server $server */
         $server = $model->server;
         if ($server->node_id !== $node->id) {
             throw new HttpForbiddenException('You do not have permission to access that backup.');
@@ -91,7 +91,7 @@ class BackupStatusController extends Controller
      */
     public function restore(Request $request, string $backup): JsonResponse
     {
-        /** @var \Pterodactyl\Models\Backup $model */
+        /** @var \Xactyl\Models\Backup $model */
         $model = Backup::query()->where('uuid', $backup)->firstOrFail();
 
         $model->server->update(['status' => null]);
@@ -109,7 +109,7 @@ class BackupStatusController extends Controller
      * the given backup.
      *
      * @throws \Exception
-     * @throws \Pterodactyl\Exceptions\DisplayException
+     * @throws \Xactyl\Exceptions\DisplayException
      */
     protected function completeMultipartUpload(Backup $backup, S3Filesystem $adapter, bool $successful, ?array $parts): void
     {

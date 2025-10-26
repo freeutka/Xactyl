@@ -1,18 +1,18 @@
 <?php
 
-namespace Pterodactyl\Http\Controllers\Api\Client\Servers;
+namespace Xactyl\Http\Controllers\Api\Client\Servers;
 
 use Illuminate\Http\Response;
-use Pterodactyl\Models\Server;
+use Xactyl\Models\Server;
 use Illuminate\Http\JsonResponse;
-use Pterodactyl\Facades\Activity;
-use Pterodactyl\Repositories\Eloquent\ServerRepository;
-use Pterodactyl\Services\Servers\ReinstallServerService;
-use Pterodactyl\Http\Controllers\Api\Client\ClientApiController;
+use Xactyl\Facades\Activity;
+use Xactyl\Repositories\Eloquent\ServerRepository;
+use Xactyl\Services\Servers\ReinstallServerService;
+use Xactyl\Http\Controllers\Api\Client\ClientApiController;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
-use Pterodactyl\Http\Requests\Api\Client\Servers\Settings\RenameServerRequest;
-use Pterodactyl\Http\Requests\Api\Client\Servers\Settings\SetDockerImageRequest;
-use Pterodactyl\Http\Requests\Api\Client\Servers\Settings\ReinstallServerRequest;
+use Xactyl\Http\Requests\Api\Client\Servers\Settings\RenameServerRequest;
+use Xactyl\Http\Requests\Api\Client\Servers\Settings\SetDockerImageRequest;
+use Xactyl\Http\Requests\Api\Client\Servers\Settings\ReinstallServerRequest;
 
 class SettingsController extends ClientApiController
 {
@@ -29,8 +29,8 @@ class SettingsController extends ClientApiController
     /**
      * Renames a server.
      *
-     * @throws \Pterodactyl\Exceptions\Model\DataValidationException
-     * @throws \Pterodactyl\Exceptions\Repository\RecordNotFoundException
+     * @throws \Xactyl\Exceptions\Model\DataValidationException
+     * @throws \Xactyl\Exceptions\Repository\RecordNotFoundException
      */
     public function rename(RenameServerRequest $request, Server $server): JsonResponse
     {
