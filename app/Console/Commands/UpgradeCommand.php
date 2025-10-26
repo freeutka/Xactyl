@@ -149,6 +149,16 @@ class UpgradeCommand extends Command
         });
 
         $this->withProgress($bar, function () {
+            $this->line('$upgrader> php artisan route:clear');
+            $this->call('route:clear');
+        });
+
+        $this->withProgress($bar, function () {
+            $this->line('$upgrader> php artisan route:cache');
+            $this->call('route:cache');
+        });
+
+        $this->withProgress($bar, function () {
             $this->line('$upgrader> php artisan migrate --force --seed');
             $this->call('migrate', ['--force' => true, '--seed' => true]);
         });
