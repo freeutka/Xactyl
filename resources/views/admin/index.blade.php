@@ -91,7 +91,76 @@
         </div>
     </div>
 </div>
-
+<div class="row">
+    <div class="col-md-6">
+        <div class="box box-primary">
+            <div class="box-header with-border">
+                <h3 class="box-title"><i class="fa fa-info-circle"></i> System Environment</h3>
+            </div>
+            <div class="box-body no-padding">
+                <table class="table table-hover" style="table-layout: fixed;">
+                    <tbody>
+                        <tr>
+                            <td class="text-muted" style="vertical-align: middle;"><strong>PHP Version</strong></td>
+                            <td style="vertical-align: middle;"><span class="label label-primary">{{ phpversion() }}</span></td>
+                        </tr>
+                        <tr>
+                            <td class="text-muted" style="vertical-align: middle;"><strong>Server Time</strong></td>
+                            <td style="vertical-align: middle;"><code>{{ now()->format('H:i:s') }}</code></td>
+                        </tr>
+                        <tr>
+                            <td class="text-muted" style="vertical-align: middle;"><strong>Load Average</strong></td>
+                            <td style="vertical-align: middle;">
+                                @php $load = sys_getloadavg(); @endphp
+                                <span class="label @if($load[0] > 1.0) label-warning @else label-success @endif">{{ number_format($load[0], 2) }}</span>
+                                <span class="label label-default" style="margin-left: 2px;">{{ number_format($load[1], 2) }}</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-muted" style="vertical-align: middle;"><strong>DB Driver</strong></td>
+                            <td style="vertical-align: middle;"><code>{{ config('database.default') }}</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="box box-primary">
+            <div class="box-header with-border">
+                <h3 class="box-title"><i class="fa fa-heartbeat"></i> Platform Health</h3>
+            </div>
+            <div class="box-body no-padding">
+                <table class="table table-hover" style="table-layout: fixed;">
+                    <tbody>
+                        <tr>
+                            <td class="text-muted"><strong>Application URL</strong></td>
+                            <td class="text-right"><code>{{ config('app.url') }}</code></td>
+                        </tr>
+                        <tr>
+                            <td class="text-muted" style="vertical-align: middle;"><strong>SSL Status</strong></td>
+                            <td class="text-right" style="vertical-align: middle;">
+                                @if(request()->isSecure())
+                                    <span class="label label-success">Secure</span>
+                                @else
+                                    <span class="label label-warning">Insecure</span>
+                                @endif
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-muted"><strong>Timezone</strong></td>
+                            <td class="text-right"><code>{{ config('app.timezone') }}</code></td>
+                        </tr>
+                        <tr>
+                            <td class="text-muted" style="vertical-align: middle;"><strong>Environment</strong></td>
+                            <td class="text-right" style="vertical-align: middle;"><code>{{ app()->environment() }}</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="row">
     <div class="col-xs-6 col-sm-3 text-center">
         <a href="{{ $version->getDiscord() }}"><button class="btn btn-warning" style="width:100%;"><i class="fa fa-fw fa-support"></i> Get Help <small>(via Discord)</small></button></a>
