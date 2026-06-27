@@ -4,6 +4,7 @@ namespace Xactyl\Http\Controllers\Api\Client\Servers;
 
 use Carbon\CarbonImmutable;
 use Xactyl\Models\User;
+use Xactyl\Enum\JwtScope;
 use Xactyl\Models\Server;
 use Illuminate\Http\JsonResponse;
 use Xactyl\Services\Nodes\NodeJWTService;
@@ -43,6 +44,7 @@ class FileUploadController extends ClientApiController
             ->setExpiresAt(CarbonImmutable::now()->addMinutes(15))
             ->setUser($user)
             ->setClaims(['server_uuid' => $server->uuid])
+            ->setScopes(JwtScope::FileUpload)
             ->handle($server->node, $user->id . $server->uuid);
 
         return sprintf(
