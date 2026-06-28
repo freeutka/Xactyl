@@ -4,7 +4,7 @@ namespace Xactyl\Http\Controllers\Api\Client\Servers;
 
 use Carbon\CarbonImmutable;
 use Xactyl\Models\Server;
-use Pterodactyl\Enum\JwtScope;
+use Xactyl\Enum\JwtScope;
 use Illuminate\Http\JsonResponse;
 use Xactyl\Models\Permission;
 use Xactyl\Services\Nodes\NodeJWTService;
