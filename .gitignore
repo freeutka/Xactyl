@@ -15,7 +15,7 @@ _ide_helper.php
 _ide_helper_models.php
 .phpstorm.meta.php
 .yarn
-public/assets/manifest.json
+# public/assets/manifest.json
 
 # For local development with docker
 # Remove if we ever put the Dockerfile in the repo
@@ -35,3 +35,13 @@ result
 docker-compose.yaml
 
 panel.tar.gz
+
+storage/framework/*
+
+!storage/framework/sessions/
+!storage/framework/views/
+!storage/framework/cache/
+
+storage/framework/sessions/*
+storage/framework/views/*
+storage/framework/cache/*

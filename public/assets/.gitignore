@@ -1,0 +1,6 @@
+*
+
+!svgs/
+!svgs/**
+
+!.gitignore
